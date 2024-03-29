@@ -11,7 +11,6 @@ import { API_URL } from "../../../constants/constatns";
 import ConfirmationForm from "./ConfirmationForm";
 
 import { useNavigate } from 'react-router-dom';
-import ReCAPTCHA from "react-google-recaptcha";
 
 
 const LoginFormInfo = ({
