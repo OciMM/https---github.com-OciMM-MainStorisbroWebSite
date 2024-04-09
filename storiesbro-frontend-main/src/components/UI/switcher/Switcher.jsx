@@ -7,9 +7,9 @@ const Switcher = ({ ismainpage }) => {
   const [statusCustomer, setStatusCustomer] = useState(false)
   // const [statusAdmin, setStatusAdmin] = useState()
 
-  if (!isCustomer) {
+  if (isCustomer) {
     localStorage.setItem("statusAccount", "customer")
-  } if(isCustomer) {
+  } if(!isCustomer) {
     localStorage.setItem("statusAccount", "admin")
   };
   
