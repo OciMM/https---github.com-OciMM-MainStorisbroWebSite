@@ -7,14 +7,11 @@ import { useSelector } from "react-redux";
 import exit from "../images/exit.svg";
 import settings from "../images/settings.svg";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
 import { API_URL } from "../../../../constants/constatns";
 
-const navigate = useNavigate();
 
 const handleExit = () => {
   localStorage.clear();
-  navigate('/');
 };
 
 const ExitMenu = ({ open, setOpen }) => {
@@ -66,7 +63,7 @@ const ExitMenu = ({ open, setOpen }) => {
                 src={exit}
                 sx={{ mr: 1, ml: 1 }}
               />
-              <NavLink onClick={handleExit} className="linkItem">
+              <NavLink to="/" onClick={handleExit} className="linkItem">
                 Выйти
               </NavLink>
             </Box>
