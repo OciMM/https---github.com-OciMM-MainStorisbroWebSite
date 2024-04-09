@@ -26,6 +26,7 @@ const LoginFormInfo = ({
   const [password, setPassword] = useState("");
   const [userId, setUserId] = useState(null); // что нужно
   // const [isConfirmFormOpen, setIsConfirmPageOpen] = useState(false);
+  const [status, setStatus] = useState("")
 
   // const history = useHistory();
 
@@ -56,7 +57,14 @@ const LoginFormInfo = ({
         localStorage.setItem("count_of_visit", response.data["count_of_visit"] + 1)
         
         dispatch(setTokken(response.data["access"]));
-        navigate('/admin');
+
+        const checkStatus = localStorage.getItem("statusAccount");
+        if (checkStatus == "admin") {
+          navigate('/admin');
+        } if (checkStatus == "customer") {
+          navigate('/customer');
+        };
+        
       });
   };
 
