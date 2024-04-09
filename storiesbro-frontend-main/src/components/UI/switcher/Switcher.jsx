@@ -1,9 +1,18 @@
 import { Box, Switch, Typography } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../../../context/Context";
 
 const Switcher = ({ ismainpage }) => {
   const [isCustomer, setIsCustomer] = useContext(Context);
+  const [statusCustomer, setStatusCustomer] = useState(false)
+  // const [statusAdmin, setStatusAdmin] = useState()
+
+  if (!isCustomer) {
+    localStorage.setItem("statusAccount", "customer")
+  } if(isCustomer) {
+    localStorage.setItem("statusAccount", "admin")
+  };
+  
 
   return (
     <Box
