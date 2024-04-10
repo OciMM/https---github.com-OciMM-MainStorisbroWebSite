@@ -71,11 +71,12 @@ const CustomerPage = ({ isLoginFormOpen, setIsLoginFormOpen, ismainpage }) => {
 и другие проекты в 7 раз эффективнее"
               buttonText="Начать продвижение"
               image={hero2}
+              setIsLoginFormOpen={setIsLoginFormOpen}
             />
           </Grid>
 
           <Grid item xs={12}>
-            <Advantages images={images} />
+            <Advantages images={images} setIsLoginFormOpen={setIsLoginFormOpen} />
           </Grid>
 
           <Grid item xs={12}>
@@ -103,6 +104,7 @@ const CustomerPage = ({ isLoginFormOpen, setIsLoginFormOpen, ismainpage }) => {
                 "Пополните баланс",
               ]}
               buttonText="Стать заказчиком"
+              setIsLoginFormOpen={setIsLoginFormOpen}
             />
           </Grid>
 
