@@ -73,12 +73,13 @@ const AdminPage = ({ isLoginFormOpen, setIsLoginFormOpen, ismainpage }) => {
               ]}
               content="Получайте дополнительный и пассивный доход с автоматических публикаций нативных историй"
               buttonText="Повысить доход"
+              setIsLoginFormOpen={setIsLoginFormOpen}
               image={heroImage}
             />
           </Grid>
 
           <Grid item xs={12}>
-            <Advantages images={images} />
+            <Advantages images={images} setIsLoginFormOpen={setIsLoginFormOpen} />
           </Grid>
 
           <Grid item xs={12}>
@@ -102,6 +103,7 @@ const AdminPage = ({ isLoginFormOpen, setIsLoginFormOpen, ismainpage }) => {
               title="Всего несколько шагов до монетизации"
               steps={["Зарегистрируйтесь", "Подключите сообщества"]}
               buttonText="Начать зарабатывать"
+              setIsLoginFormOpen={setIsLoginFormOpen}
             />
           </Grid>
 

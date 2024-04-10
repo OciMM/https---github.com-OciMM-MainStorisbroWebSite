@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import GradientButton from "../../UI/buttons/GradientButton";
 
-const Advantages = ({ images }) => {
+const Advantages = ({ images, setIsLoginFormOpen }) => {
   return (
     <Box
       sx={{
@@ -52,7 +52,7 @@ const Advantages = ({ images }) => {
           </Grid>
         ))}
       </Grid>
-      <GradientButton width="390px">Подключиться сейчас</GradientButton>
+      <GradientButton handleClick={() => setIsLoginFormOpen(true)} width="390px">Подключиться сейчас</GradientButton>
     </Box>
   );
 };

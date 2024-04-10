@@ -5,7 +5,7 @@ import "../../../styles/colors.css";
 import "../../../styles/border.css";
 import GradientButton from "../../UI/buttons/GradientButton";
 
-const Hero = ({ title, content, buttonText, image }) => {
+const Hero = ({ title, content, buttonText, image, setIsLoginFormOpen }) => {
   return (
     <Box
       className="orangeBorder"
@@ -37,7 +37,7 @@ const Hero = ({ title, content, buttonText, image }) => {
         >
           {content}
         </Typography>
-        <GradientButton width="68%" height="20%">
+        <GradientButton width="68%" height="20%" handleClick={() => setIsLoginFormOpen(true)}>
           {buttonText}
         </GradientButton>
       </Box>

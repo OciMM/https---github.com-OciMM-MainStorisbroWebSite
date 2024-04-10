@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 import Scrooge from "../../../images/landingImages/Scrooge.svg";
 import GradientButton from "../../UI/buttons/GradientButton";
 
-const Steps = ({ title, steps, buttonText }) => {
+const Steps = ({ title, steps, buttonText, setIsLoginFormOpen }) => {
   return (
     <Box
       className="orangeBorder"
@@ -35,7 +35,7 @@ const Steps = ({ title, steps, buttonText }) => {
           ))}
         </Box>
       </Box>
-      <GradientButton width="390px" xsWidth="247px" height="72px">
+      <GradientButton width="390px" xsWidth="247px" height="72px" handleClick={() => setIsLoginFormOpen(true)}>
         {buttonText}
       </GradientButton>
       <Box
