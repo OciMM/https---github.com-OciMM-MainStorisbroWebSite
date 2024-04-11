@@ -36,7 +36,7 @@ const LoginFormInfo = ({
   const handleConfirmFormInternal = () => {
     setIsLoginFormOpen(false);
     // setIsConfirmPageOpen(true);
-    const response_check = axios.post(`${API_URL}api_users/check_email`, { email: yourEmail });
+    // const response_check = axios.post(`${API_URL}api_users/check_email`, { email: yourEmail });
     axios
       .post(`${API_URL}login/`, {
         email: email,
