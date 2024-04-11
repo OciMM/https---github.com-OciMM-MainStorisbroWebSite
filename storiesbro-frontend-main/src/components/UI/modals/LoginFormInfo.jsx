@@ -34,7 +34,7 @@ const LoginFormInfo = ({
   const navigate = useNavigate();
 
   const handleConfirmFormInternal = () => {
-    setIsLoginFormOpen(false);
+    // setIsLoginFormOpen(false);
     // setIsConfirmPageOpen(true);
     // const response_check = axios.post(`${API_URL}api_users/check_email`, { email: yourEmail });
     axios
@@ -48,6 +48,7 @@ const LoginFormInfo = ({
         setUserId(response.data.id);
         handleConfirmForm(response.data.id)
         setIsConfirmPageOpen(true);
+        setIsLoginFormOpen(false);
         axios.defaults.headers.common["Authorization"] =
           "Bearer " + response.data["access"];
 
@@ -55,9 +56,8 @@ const LoginFormInfo = ({
         localStorage.setItem("refresh", response.data["refresh"])
         localStorage.setItem("id", response.data["id"])
         localStorage.setItem("count_of_visit", response.data["count_of_visit"] + 1)
-        
         dispatch(setTokken(response.data["access"]));
-
+        
         const checkStatus = localStorage.getItem("statusAccount");
           if (checkStatus == "admin") {
             navigate('/admin');
