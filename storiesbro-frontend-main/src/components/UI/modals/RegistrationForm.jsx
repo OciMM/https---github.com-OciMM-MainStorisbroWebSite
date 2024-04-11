@@ -64,7 +64,7 @@ const RegistrationForm = ({
       >
         <MyInput label="Введите почту" value={email} setValue={setEmail} />
         <MyInput
-          label="Прилдумайте пароль"
+          label="Придумайте пароль"
           isPassword={true}
           value={password}
           setValue={setPassword}

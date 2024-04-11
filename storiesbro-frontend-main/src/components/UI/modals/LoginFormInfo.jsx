@@ -21,12 +21,11 @@ const LoginFormInfo = ({
   setIsConfirmPageOpen,
   handleConfirmForm
 }) => {
-  const error = true;
+  const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userId, setUserId] = useState(null); // что нужно
   // const [isConfirmFormOpen, setIsConfirmPageOpen] = useState(false);
-  const [status, setStatus] = useState("")
 
   // const history = useHistory();
 
@@ -36,7 +35,8 @@ const LoginFormInfo = ({
 
   const handleConfirmFormInternal = () => {
     setIsLoginFormOpen(false);
-    setIsConfirmPageOpen(true);
+    // setIsConfirmPageOpen(true);
+    const response_check = axios.post(`${API_URL}api_users/check_email`, { email: yourEmail });
     axios
       .post(`${API_URL}login/`, {
         email: email,
@@ -59,12 +59,14 @@ const LoginFormInfo = ({
         dispatch(setTokken(response.data["access"]));
 
         const checkStatus = localStorage.getItem("statusAccount");
-        if (checkStatus == "admin") {
-          navigate('/admin');
-        } if (checkStatus == "customer") {
-          navigate('/customer');
-        };
-        
+          if (checkStatus == "admin") {
+            navigate('/admin');
+          } if (checkStatus == "customer") {
+            navigate('/customer');
+          };
+      })
+      .catch(function (error) {
+        setError(true); // Устанавливаем флаг ошибки в true при ошибке запроса
       });
   };
 
