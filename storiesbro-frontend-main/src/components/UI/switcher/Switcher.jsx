@@ -24,7 +24,7 @@ const Switcher = ({ ismainpage }) => {
     
     if (refresh && token && id) {
       if (statusAccount == 'customer') {
-        navigate('/customers');
+        navigate('/customer');
       } if (statusAccount == 'admin') {
         navigate('/admin');
       };
