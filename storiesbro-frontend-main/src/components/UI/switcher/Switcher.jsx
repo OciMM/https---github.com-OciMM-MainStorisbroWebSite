@@ -14,7 +14,7 @@ const Switcher = ({ ismainpage }) => {
   
 
   const handleSwitch = () =>{
-    setIsCustomer(!isCustomer)
+    setIsCustomer(isCustomer)
 
     if (isCustomer) {
       localStorage.setItem("statusAccount", "customer")
