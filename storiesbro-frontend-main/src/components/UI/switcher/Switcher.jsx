@@ -1,17 +1,36 @@
 import { Box, Switch, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { Context } from "../../../context/Context";
+import { useNavigate } from "react-router-dom";
 
 const Switcher = ({ ismainpage }) => {
   const [isCustomer, setIsCustomer] = useContext(Context);
-  const [statusCustomer, setStatusCustomer] = useState(false)
-  // const [statusAdmin, setStatusAdmin] = useState()
+  
+  const refresh = localStorage.getItem('refresh')
+  const token = localStorage.getItem('token')
+  const id = localStorage.getItem('id')
+  const statusAccount = localStorage.getItem('statusAccount')
+  const navigate = useNavigate()
+  
 
-  if (isCustomer) {
-    localStorage.setItem("statusAccount", "customer")
-  } if(!isCustomer) {
-    localStorage.setItem("statusAccount", "admin")
+  const handleSwitch = () =>{
+    setIsCustomer(!isCustomer)
+
+    if (isCustomer) {
+      localStorage.setItem("statusAccount", "customer")
+    } if(!isCustomer) {
+      localStorage.setItem("statusAccount", "admin")
+    };
+    
+    if (refresh && token && id) {
+      if (statusAccount == 'customer') {
+        navigate('/customers');
+      } if (statusAccount == 'admin') {
+        navigate('/admin');
+      };
+    };
   };
+  
   
 
   return (
@@ -33,7 +52,7 @@ const Switcher = ({ ismainpage }) => {
       </Typography>
       <Switch
         checked={!isCustomer}
-        onClick={() => setIsCustomer(!isCustomer)}
+        onClick={handleSwitch}
       />
       <Typography
         sx={{

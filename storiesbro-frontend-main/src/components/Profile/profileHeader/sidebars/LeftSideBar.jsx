@@ -10,6 +10,7 @@ import tagUser from "./sidebarIcons/tagUser.svg";
 import logo from "./sidebarIcons/logo.svg";
 import cross from "./sidebarIcons/cross.svg";
 import MyButton from "../../../UI/buttons/MyButton";
+import { Link, NavLink } from "react-router-dom";
 
 const LeftSideBar = ({ open, setOpen }) => {
   return (
@@ -58,7 +59,9 @@ const LeftSideBar = ({ open, setOpen }) => {
           </Typography>
           <Box sx={{ width: "75%" }}>
             <MyButton options={{ background: "#E37E31", color: "white" }}>
-              Пополнить
+            <Link to="/cash" style={{ textDecoration: "none" }}>
+              <Typography sx={{ color: "white" }}>Пополнить</Typography>
+            </Link>
             </MyButton>
           </Box>
         </Box>
@@ -75,22 +78,22 @@ const LeftSideBar = ({ open, setOpen }) => {
         >
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="flash" src={flash} sx={{ mr: 1 }} />
-            <Typography className="menuItem">Креативы</Typography>
+            <Typography className="menuItem"><NavLink to="/creatives">Креативы</NavLink></Typography>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="lock" src={lock} sx={{ mr: 1 }} />
-            <Typography className="menuItem">Брони</Typography>
+            <Typography className="menuItem"><NavLink to="/reservations">Брони</NavLink></Typography>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="list" src={list} sx={{ mr: 1 }} />
-            <Typography className="menuItem">Список сообществ</Typography>
+            <Typography className="menuItem"><NavLink to="/customer-publics">Список сообществ</NavLink></Typography>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="moneys" src={moneys} sx={{ mr: 1 }} />
-            <Typography className="menuItem">Реф. система</Typography>
+            <Typography className="menuItem"><NavLink to="/customer-referal">Реф. система</NavLink></Typography>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
@@ -100,12 +103,12 @@ const LeftSideBar = ({ open, setOpen }) => {
               src={messageQuestion}
               sx={{ mr: 1 }}
             />
-            <Typography className="menuItem">Помощь</Typography>
+            <Typography className="menuItem"><NavLink to="/customer-help">Помощь</NavLink></Typography>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="tagUser" src={tagUser} sx={{ mr: 1 }} />
-            <Typography className="menuItem">Тех. поддержка</Typography>
+            <Typography className="menuItem"><NavLink to="/customer-support">Тех. поддержка</NavLink></Typography>
           </Box>
         </Box>
       </Box>
