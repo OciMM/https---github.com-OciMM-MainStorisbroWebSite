@@ -13,23 +13,23 @@ const Switcher = ({ ismainpage }) => {
   const navigate = useNavigate()
   
 
-  const handleSwitch = () => {
-    setIsCustomer(prevIsCustomer => {
-      const newIsCustomer = !prevIsCustomer;
-      localStorage.setItem("statusAccount", newIsCustomer ? "admin" : "customer");
-      return newIsCustomer;
-    });
-  
-    // Ваши операции с переходом
+  const handleSwitch = () =>{
+    setIsCustomer(!isCustomer)
+    
     if (refresh && token && id) {
-      if (statusAccount === 'customer') {
+      if (statusAccount == 'customer') {
         navigate('/customer');
-      } else if (statusAccount === 'admin') {
+      } if (statusAccount == 'admin') {
         navigate('/admin');
-      }
-    }
+      };
+    };
   };
   
+  if (isCustomer) {
+    localStorage.setItem("statusAccount", "customer")
+  } if(!isCustomer) {
+    localStorage.setItem("statusAccount", "admin")
+  };
   
 
   return (
@@ -50,7 +50,7 @@ const Switcher = ({ ismainpage }) => {
         Заказчикам
       </Typography>
       <Switch
-        checked={isCustomer}
+        checked={!isCustomer}
         onClick={handleSwitch}
       />
       <Typography
