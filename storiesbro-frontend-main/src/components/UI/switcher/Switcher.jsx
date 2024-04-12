@@ -50,7 +50,7 @@ const Switcher = ({ ismainpage }) => {
         Заказчикам
       </Typography>
       <Switch
-        checked={!isCustomer}
+        checked={isCustomer}
         onClick={handleSwitch}
       />
       <Typography
