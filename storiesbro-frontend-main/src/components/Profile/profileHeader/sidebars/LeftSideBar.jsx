@@ -78,22 +78,22 @@ const LeftSideBar = ({ open, setOpen }) => {
         >
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="flash" src={flash} sx={{ mr: 1 }} />
-            <Typography className="menuItem"><NavLink to="/creatives">Креативы</NavLink></Typography>
+            <NavLink className="menuItem" to="/creatives">Креативы</NavLink>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="lock" src={lock} sx={{ mr: 1 }} />
-            <Typography className="menuItem"><NavLink to="/reservations">Брони</NavLink></Typography>
+            <NavLink className="menuItem" to="/reservations">Брони</NavLink>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="list" src={list} sx={{ mr: 1 }} />
-            <Typography className="menuItem"><NavLink to="/customer-publics">Список сообществ</NavLink></Typography>
+            <NavLink className="menuItem" to="/customer-publics">Список сообществ</NavLink>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="moneys" src={moneys} sx={{ mr: 1 }} />
-            <Typography className="menuItem"><NavLink to="/customer-referal">Реф. система</NavLink></Typography>
+            <NavLink className="menuItem" to="/customer-referal">Реф. система</NavLink>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
@@ -103,12 +103,12 @@ const LeftSideBar = ({ open, setOpen }) => {
               src={messageQuestion}
               sx={{ mr: 1 }}
             />
-            <Typography className="menuItem"><NavLink to="/customer-help">Помощь</NavLink></Typography>
+            <NavLink className="menuItem" to="/customer-help">Помощь</NavLink>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="tagUser" src={tagUser} sx={{ mr: 1 }} />
-            <Typography className="menuItem"><NavLink to="/customer-support">Тех. поддержка</NavLink></Typography>
+            <NavLink className="menuItem" to="/customer-support">Тех. поддержка</NavLink>
           </Box>
         </Box>
       </Box>

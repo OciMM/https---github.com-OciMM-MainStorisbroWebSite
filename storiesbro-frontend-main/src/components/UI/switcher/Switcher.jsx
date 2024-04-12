@@ -13,22 +13,21 @@ const Switcher = ({ ismainpage }) => {
   const navigate = useNavigate()
   
 
-  const handleSwitch = () =>{
-    setIsCustomer(isCustomer)
-
-    if (isCustomer) {
-      localStorage.setItem("statusAccount", "customer")
-    } if(!isCustomer) {
-      localStorage.setItem("statusAccount", "admin")
-    };
-    
+  const handleSwitch = () => {
+    setIsCustomer(prevIsCustomer => {
+      const newIsCustomer = !prevIsCustomer;
+      localStorage.setItem("statusAccount", newIsCustomer ? "admin" : "customer");
+      return newIsCustomer;
+    });
+  
+    // Ваши операции с переходом
     if (refresh && token && id) {
-      if (statusAccount == 'customer') {
+      if (statusAccount === 'customer') {
         navigate('/customer');
-      } if (statusAccount == 'admin') {
+      } else if (statusAccount === 'admin') {
         navigate('/admin');
-      };
-    };
+      }
+    }
   };
   
   
