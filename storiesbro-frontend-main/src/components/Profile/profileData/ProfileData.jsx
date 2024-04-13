@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import React from "react";
 import ProfileName from "./ProfileName";
 import ProfileEmail from "./ProfileEmail";
@@ -15,6 +15,7 @@ const ProfileData = () => {
       <ProfileName />
       <ProfileEmail />
       <ProfileButton />
+      <Button>Сохранить</Button>
     </Box>
   );
 };

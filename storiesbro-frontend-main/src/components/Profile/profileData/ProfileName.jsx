@@ -5,13 +5,14 @@ import axios from "axios";
 import pencil from "../../../images/profileImages/dataIcons/pencil.svg";
 import MyInput from "../../UI/input/MyInput";
 
+
 import { API_URL } from "../../../constants/constatns";
 
 const ProfileName = () => {
   const [name, setName] = useState("");
   const [isEdit, setIsEdit] = useState(false);
-  const [editedName, setEditedName] = useState("");
-  const [isDirty, setIsDirty] = useState(false); // Новое состояние для отслеживания изменений в инпуте
+  // const [editedName, setEditedName] = useState("");
+  // const [isDirty, setIsDirty] = useState(false); // Новое состояние для отслеживания изменений в инпуте
   const tokken = localStorage["token"];
   const userId = localStorage["id"];
 
@@ -33,22 +34,22 @@ const ProfileName = () => {
   const handleUpdate = async () => {
     try {
       // Отправка запроса на сервер для обновления информации
-      await axios.patch(`${API_URL}api_users/change_profile/${userId}`, { name: editedName }, {
+      await axios.patch(`${API_URL}api_users/change_profile/${userId}`, { name: name }, {
         withCredentials: true,
         headers: { Authorization: `Bearer ${tokken}` }
       });
-      setIsDirty(false);
+      // setIsDirty(false);
       setIsEdit(false);
     } catch (error) {
       console.error('Ошибка при обновлении профиля', error);
     }
   };
 
-  const handleInputChange = (event) => {
-    const inputValue = event.target.value;
-    setEditedName(inputValue);
-    setIsDirty(true);
-  };
+  // const handleInputChange = (event) => {
+  //   const inputValue = event.target.value;
+  //   setEditedName(inputValue);
+  //   setIsDirty(true);
+  // };
 
   return (
     <Box
@@ -63,20 +64,17 @@ const ProfileName = () => {
         sx={{ width: "65%", display: "flex", alignItems: "center" }}
         onBlur={() => {
           setIsEdit(false);
-          if (isDirty) {
-            handleUpdate();
-          }
+          // if (isDirty) {
+          //   handleUpdate();
+          // }
         }}
       >
         <MyInput
           value={name.name}
           setValue={setName}
-          onChange={handleInputChange} // Обновленный обработчик для отслеживания изменений в инпуте
+          // onChange={handleInputChange} // Обновленный обработчик для отслеживания изменений в инпуте
           disabled={!isEdit}
         />
-        {isDirty && (
-          <Typography onClick={handleUpdate}>Обновить</Typography>
-        )}
         <Box
           component="img"
           alt="pencil"
