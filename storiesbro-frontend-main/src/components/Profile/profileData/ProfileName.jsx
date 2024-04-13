@@ -75,7 +75,7 @@ const ProfileName = () => {
           disabled={!isEdit}
         />
         {isDirty && (
-          <button onClick={handleUpdate}>Обновить</button>
+          <Typography onClick={handleUpdate}>Обновить</Typography>
         )}
         <Box
           component="img"
