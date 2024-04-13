@@ -31,25 +31,7 @@ const ProfileName = () => {
     fetchProfile();
   }, [tokken]);
 
-  const handleUpdate = async () => {
-    try {
-      // Отправка запроса на сервер для обновления информации
-      await axios.patch(`${API_URL}api_users/change_profile/${userId}`, { name: name }, {
-        withCredentials: true,
-        headers: { Authorization: `Bearer ${tokken}` }
-      });
-      // setIsDirty(false);
-      setIsEdit(false);
-    } catch (error) {
-      console.error('Ошибка при обновлении профиля', error);
-    }
-  };
-
-  // const handleInputChange = (event) => {
-  //   const inputValue = event.target.value;
-  //   setEditedName(inputValue);
-  //   setIsDirty(true);
-  // };
+  localStorage.setItem("new_name", name)
 
   return (
     <Box
@@ -64,15 +46,11 @@ const ProfileName = () => {
         sx={{ width: "65%", display: "flex", alignItems: "center" }}
         onBlur={() => {
           setIsEdit(false);
-          // if (isDirty) {
-          //   handleUpdate();
-          // }
         }}
       >
         <MyInput
           value={name.name}
           setValue={setName}
-          // onChange={handleInputChange} // Обновленный обработчик для отслеживания изменений в инпуте
           disabled={!isEdit}
         />
         <Box
