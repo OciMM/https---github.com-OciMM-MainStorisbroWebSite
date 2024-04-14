@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import MyInput from "../../UI/input/MyInput";
 import pencil from "../../../images/profileImages/dataIcons/pencil.svg";
 import ProfileDataModal from "./Modals/ProfileDataModal";
+import { API_URL } from "../../../constants/constatns";
+import axios from "axios";
+
 const ProfileEmail = () => {
   const present_email = localStorage.getItem('email')
   const [email, setEmail] = useState(present_email);
@@ -12,6 +15,12 @@ const ProfileEmail = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleBlur = () => {
+    try {
+      // Отправка запроса на сервер для обновления информации
+      axios.post(`${API_URL}change_email/${localStorage.getItem('email')}`);
+    } catch (error) {
+      console.error('Ошибка при отправке кода', error);
+    }
     setIsEdit(false);
     setModalOpen(true);
   };
