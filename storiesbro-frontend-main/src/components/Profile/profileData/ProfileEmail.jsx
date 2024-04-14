@@ -17,9 +17,8 @@ const ProfileEmail = () => {
   const handleBlur = () => {
     try {
       // Отправка запроса на сервер для обновления информации
-      axios.post(`${API_URL}change_email/${localStorage.getItem('email')}/`);
+      axios.post(`${API_URL}change_email/`, { email: localStorage.getItem('email') });
       console.log("код отправился");
-      console.log(axios.post(`${API_URL}change_email/${localStorage.getItem('email')}/`));
     } catch (error) {
       console.error('Ошибка при отправке кода', error);
     }
