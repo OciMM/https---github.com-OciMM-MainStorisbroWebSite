@@ -5,8 +5,9 @@ import MyInput from "../../UI/input/MyInput";
 import pencil from "../../../images/profileImages/dataIcons/pencil.svg";
 import ProfileDataModal from "./Modals/ProfileDataModal";
 const ProfileEmail = () => {
-  const [email, setEmail] = useState(localStorage.getItem('email'));
-  const [newEmail, setNewEmail] = useState("gusgusnik@gmail.com");
+  const present_email = localStorage.getItem('email')
+  const [email, setEmail] = useState("");
+  const [newEmail, setNewEmail] = useState("");
   const [isEdit, setIsEdit] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -37,7 +38,8 @@ const ProfileEmail = () => {
         onBlur={handleBlur}
       >
         <MyInput
-          value={email}
+          label={present_email}
+          value={newEmail}
           setValue={setNewEmail}
           disabled={!isEdit}
           focused={true}
