@@ -37,7 +37,7 @@ const ProfileEmail = () => {
         onBlur={handleBlur}
       >
         <MyInput
-          value={newEmail}
+          value={email}
           setValue={setNewEmail}
           disabled={!isEdit}
           focused={true}
