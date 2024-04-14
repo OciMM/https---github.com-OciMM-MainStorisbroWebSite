@@ -6,8 +6,8 @@ import pencil from "../../../images/profileImages/dataIcons/pencil.svg";
 import ProfileDataModal from "./Modals/ProfileDataModal";
 const ProfileEmail = () => {
   const present_email = localStorage.getItem('email')
-  const [email, setEmail] = useState("");
-  const [newEmail, setNewEmail] = useState("");
+  const [email, setEmail] = useState(present_email);
+  // const [newEmail, setNewEmail] = useState("");
   const [isEdit, setIsEdit] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -27,9 +27,8 @@ const ProfileEmail = () => {
       <ProfileDataModal
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
-        email={email}
         setEmail={setEmail}
-        newEmail={newEmail}
+        newEmail={email}
       />
 
       <Typography sx={{ fontSize: "18px", fontWeight: 400 }}>Почта</Typography>
@@ -38,9 +37,8 @@ const ProfileEmail = () => {
         onBlur={handleBlur}
       >
         <MyInput
-          label={present_email}
-          value={newEmail}
-          setValue={setNewEmail}
+          value={email}
+          setValue={setEmail}
           disabled={!isEdit}
           focused={true}
         />

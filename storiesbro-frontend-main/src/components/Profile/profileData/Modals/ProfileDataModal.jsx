@@ -13,7 +13,6 @@ import { API_URL } from "../../../../constants/constatns";
 const ProfileDataModal = ({
   modalOpen,
   setModalOpen,
-  email,
   setEmail,
   newEmail,
 }) => {
@@ -84,7 +83,7 @@ const ProfileDataModal = ({
               fontWidth: 400,
             }}
           >
-            Для изменения почты введите код, отправленный на почту {email}
+            Для изменения почты введите код, отправленный на почту {localStorage.getItem('email')}
           </Typography>
           <Box sx={{ width: "50%", m: "0 auto" }}>
             <MyInput label="Введите код" value={code} setValue={setCode} />
