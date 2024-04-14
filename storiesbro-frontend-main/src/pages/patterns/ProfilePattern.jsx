@@ -19,6 +19,7 @@ const Profile = ({ children, title }) => {
       })
       .then(function (response) {
         console.log(response["data"]);
+        localStorage.setItem('email', response['data']['email'])
       })
       .catch(function (error) {
         console.error("Error fetching profile data:", error);

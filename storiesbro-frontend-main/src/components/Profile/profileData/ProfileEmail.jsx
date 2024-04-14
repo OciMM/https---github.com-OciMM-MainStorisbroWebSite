@@ -5,7 +5,7 @@ import MyInput from "../../UI/input/MyInput";
 import pencil from "../../../images/profileImages/dataIcons/pencil.svg";
 import ProfileDataModal from "./Modals/ProfileDataModal";
 const ProfileEmail = () => {
-  const [email, setEmail] = useState("gusgusnik@gmail.com");
+  const [email, setEmail] = useState(localStorage.getItem('email'));
   const [newEmail, setNewEmail] = useState("gusgusnik@gmail.com");
   const [isEdit, setIsEdit] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
