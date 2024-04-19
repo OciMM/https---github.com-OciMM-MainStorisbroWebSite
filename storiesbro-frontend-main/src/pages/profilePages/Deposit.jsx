@@ -40,7 +40,7 @@ const Deposit = () => {
   return (
     <>
       <ComissionModal open={comissionOpen} setOpen={setComissionOpen} />
-      <CashConfirmationModal open={codeModal} setOpen={setCodeModal} />
+      {/* <CashConfirmationModal open={codeModal} setOpen={setCodeModal} /> */}
       <CashError open={errorModalOpen && error} setOpen={setErrorModalOpen} />
       <DepositTable operations={operations} />
       <MobileTable operations={operations} />

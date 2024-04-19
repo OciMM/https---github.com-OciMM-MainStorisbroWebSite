@@ -20,8 +20,8 @@ const ArhiveMobileTable = ({ arhive }) => {
           pb: 1,
         }}
       >
-        <Box component="img" alt="img" src={creative["image"]} />
-        <Typography className="sm600">{creative["title"]}</Typography>
+        <Box component="img" alt="img" src={creative["file"]} />
+        <Typography className="sm600">{creative["name"]}</Typography>
       </Grid>
       <Grid
         item
@@ -66,7 +66,7 @@ const ArhiveMobileTable = ({ arhive }) => {
               mt: 1,
             }}
             className="sm centerText"
-            to={`/creatives/${creative["id"]}`}
+            to={`/creatives/${creative["creative_type"]}/${creative["id"]}`}
           >
             Открыть
           </Link>
