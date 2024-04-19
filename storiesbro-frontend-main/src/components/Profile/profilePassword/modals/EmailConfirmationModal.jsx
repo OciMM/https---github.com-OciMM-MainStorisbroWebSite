@@ -5,8 +5,28 @@ import MyInput from "../../../UI/input/MyInput";
 import MyButton from "../../../UI/buttons/MyButton";
 import ErrorMessage from "../../../UI/errors/ErrorMessage";
 
+import axios from "axios";
+import { API_URL } from "../../../../constants/constatns";
+
 const EmailConfiramtionFormModal = ({ open, setOpen }) => {
-  const handleClick = () => {
+
+  // const fetchPublics = async () => {
+  //   try {
+  //     const response = await axios.get(`${API_URL}api_communities/communities`);
+  //     setAllPublics(response.data);
+  //   } catch (error) {
+  //     console.error('Ошибка при загрузке сообществ', error);
+  //   }
+  // };
+
+  const handleClick = async () => {
+    try {
+      const response = await axios.get(`${API_URL}password_change/${localStorage.getItem('email')}/`);
+      // setAllPublics(response.data);
+      console.log(response);
+    } catch (error) {
+      console.error('Ошибка', error);
+    }
     if (code !== rightCode) {
       setError(true);
     } else {
@@ -24,6 +44,7 @@ const EmailConfiramtionFormModal = ({ open, setOpen }) => {
 
   const [code, setCode] = useState("");
   const [error, setError] = useState(false);
+  const [confirmationCode, setConfirmationCode] = useState("");
   const rightCode = "1111";
   return (
     <MyModal
@@ -34,7 +55,7 @@ const EmailConfiramtionFormModal = ({ open, setOpen }) => {
     >
       <Typography sx={{ textAlign: "center", fontSize: "18px" }}>
         Для изменения пароля, введите код, отправленный на почту
-        gausaaa@gmail.com
+        {localStorage.getItem('email')}
       </Typography>
       <Box sx={{ width: "50%", m: "20px auto" }}>
         <MyInput label="Введите код" value={code} setValue={setCode} />
