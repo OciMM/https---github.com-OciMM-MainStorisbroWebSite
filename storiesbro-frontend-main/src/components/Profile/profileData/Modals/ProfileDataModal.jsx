@@ -19,34 +19,16 @@ const ProfileDataModal = ({
   const [code, setCode] = useState("");
   const [error, setError] = useState(false);
 
-  const id = useSelector((store) => store.user)["id"];
+  // const id = useSelector((store) => store.user)["id"];
 
-  const success = () => {
-    setModalOpen(false);
-    setError(false);
-    setEmail(newEmail);
-    setCode("");
-    setRightCodeModalOpen(true);
-  };
-
-  const handleClick = (id) => {
-    /*
-    if (confirmCode === code) {
-      setModalOpen(false);
-      setError(false);
-      setEmail(newEmail);
-      setCode("");
-      setRightCodeModalOpen(true);
-    } else {
-      setError(true);
+  const handleClick = async() => {
+    try {
+      const response = await axios.post(`${API_URL}change_email/${localStorage.getItem('email')}/${newEmail}/${code}/`);
+      localStorage.setItem('email', newEmail);
+      console.log(response);
+    } catch (error) {
+      console.error('Ошибка', error);
     }
-    */
-    axios
-      .post(`${API_URL}/${id}`)
-      .then(axios.post(`${API_URL}confirmation/${id}${code}`).then(success()))
-      .catch(function (error) {
-        console.log(error);
-      });
   };
 
   const handleClose = () => {
