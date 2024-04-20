@@ -8,31 +8,14 @@ import ErrorMessage from "../../../UI/errors/ErrorMessage";
 import axios from "axios";
 import { API_URL } from "../../../../constants/constatns";
 
-const EmailConfiramtionFormModal = ({ open, setOpen }) => {
+const EmailConfiramtionFormModal = ({ open, setOpen, password }) => {
 
-  // const fetchPublics = async () => {
-  //   try {
-  //     const response = await axios.get(`${API_URL}api_communities/communities`);
-  //     setAllPublics(response.data);
-  //   } catch (error) {
-  //     console.error('Ошибка при загрузке сообществ', error);
-  //   }
-  // };
-
-  const handleClick = async () => {
+  const handleClick = async() => {
     try {
-      const response = await axios.get(`${API_URL}password_change/${localStorage.getItem('email')}/`);
-      // setAllPublics(response.data);
+      const response = await axios.post(`${API_URL}password_code_confirm/${localStorage.getItem('email')}/${password}/${code}/`);
       console.log(response);
     } catch (error) {
       console.error('Ошибка', error);
-    }
-    if (code !== rightCode) {
-      setError(true);
-    } else {
-      setError(false);
-      setOpen(false);
-      setCode("");
     }
   };
 
@@ -54,8 +37,7 @@ const EmailConfiramtionFormModal = ({ open, setOpen }) => {
       setIsFormOpen={handleClose}
     >
       <Typography sx={{ textAlign: "center", fontSize: "18px" }}>
-        Для изменения пароля, введите код, отправленный на почту
-        {localStorage.getItem('email')}
+        Для изменения пароля, введите код, отправленный на почту {localStorage.getItem('email')}
       </Typography>
       <Box sx={{ width: "50%", m: "20px auto" }}>
         <MyInput label="Введите код" value={code} setValue={setCode} />

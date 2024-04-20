@@ -26,6 +26,7 @@ const ProfileDataModal = ({
       const response = await axios.post(`${API_URL}change_email/${localStorage.getItem('email')}/${newEmail}/${code}/`);
       localStorage.setItem('email', newEmail);
       console.log(response);
+      setModalOpen(false);
     } catch (error) {
       console.error('Ошибка', error);
     }

@@ -5,11 +5,20 @@ import MyButton from "../../UI/buttons/MyButton";
 import ErrorMessage from "../../UI/errors/ErrorMessage";
 import EmailConfiramtionFormModal from "./modals/EmailConfirmationModal";
 
+import axios from "axios";
+import { API_URL } from "../../../constants/constatns";
+
 const ChangePassword = () => {
-  const handleClick = () => {
+  const handleClick = async() => {
     if (password !== passwordAgain) {
       setError(true);
     } else {
+      try {
+        const response = await axios.post(`${API_URL}password_change/${localStorage.getItem('email')}/`);
+        console.log(response);
+      } catch (error) {
+        console.error('Ошибка', error);
+      };
       setError(false);
       setEmailConfirmation(true);
     }
@@ -23,6 +32,7 @@ const ChangePassword = () => {
       <EmailConfiramtionFormModal
         open={emailConfirmation}
         setOpen={setEmailConfirmation}
+        password={password}
       />
       <MyInput
         value={password}
