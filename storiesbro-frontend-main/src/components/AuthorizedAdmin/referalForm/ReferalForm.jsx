@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Link, Typography } from "@mui/material";
 
 import copy from "./images/copy.svg";
@@ -7,6 +7,8 @@ import money from "./images/money.svg";
 import scrooge from "./images/scrooge.svg";
 
 const ReferalForm = () => {
+  const [link, setLink] = useState("Storisbro.com/?_ref=2Rh46f3L")
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Typography
@@ -22,9 +24,9 @@ const ReferalForm = () => {
         <Link
           sx={{ fontSize: { md: "18px", xs: "14px" }, textAlign: "center" }}
         >
-          Storisbro.com/?_ref=2Rh46f3L
+          {link}
         </Link>
-        <Box component="img" alt="copy" src={copy} sx={{ cursor: "pointer" }} />
+        <Box component="img" alt="copy" src={copy} sx={{ cursor: "pointer" }} onClick={() => {navigator.clipboard.writeText(this.state.textToCopy)}} />
       </Box>
       <Typography
         className="centerText w600"
