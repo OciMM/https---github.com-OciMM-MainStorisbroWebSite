@@ -8,10 +8,11 @@ import blackLogo from "../../../images/icons/commonIcons/blackLogo.svg";
 import enter from "../../../images/icons/landingIcons/enter.svg";
 import { Context } from "../../../context/Context";
 import Switcher from "../../UI/switcher/Switcher";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ setIsLoginFormOpen, ismainpage }) => {
   const [isCustomer, _] = useContext(Context);
+  const navigate = useNavigate();
   return (
     <Grid
       container
@@ -32,13 +33,8 @@ const Header = ({ setIsLoginFormOpen, ismainpage }) => {
           width: { xs: "30px", sm: "60px" },
         }}
         order={{ xs: 2, sm: 1 }}
-      >
-        {localStorage.getItem('statusAccount') === 'admin' ? (
-          <Link to="/admin-help"/>
-        ) : (
-          <Link to="/customer-help"/>
-        )}        
-      </Grid>
+        onClick={() => navigate("/customer-help")}
+      />
       <Grid
         item
         sx={{
