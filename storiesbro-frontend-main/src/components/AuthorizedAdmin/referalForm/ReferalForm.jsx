@@ -6,6 +6,8 @@ import people from "./images/people.svg";
 import money from "./images/money.svg";
 import scrooge from "./images/scrooge.svg";
 
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+
 const ReferalForm = () => {
   const [link, setLink] = useState("Storisbro.com/?_ref=2Rh46f3L")
 
@@ -26,7 +28,9 @@ const ReferalForm = () => {
         >
           {link}
         </Link>
-        <Box component="img" alt="copy" src={copy} sx={{ cursor: "pointer" }} onClick={() => {navigator.clipboard.writeText("My Link")}} />
+        <CopyToClipboard text={link}>
+          <Box component="img" alt="copy" src={copy} sx={{ cursor: "pointer" }} />
+        </CopyToClipboard>
       </Box>
       <Typography
         className="centerText w600"
