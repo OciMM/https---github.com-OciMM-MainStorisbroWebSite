@@ -26,7 +26,7 @@ const ReferalForm = () => {
         >
           {link}
         </Link>
-        <Box component="img" alt="copy" src={copy} sx={{ cursor: "pointer" }} onClick={() => {navigator.clipboard.writeText(this.state.textToCopy)}} />
+        <Box component="img" alt="copy" src={copy} sx={{ cursor: "pointer" }} onClick={() => {navigator.clipboard.writeText(link)}} />
       </Box>
       <Typography
         className="centerText w600"
