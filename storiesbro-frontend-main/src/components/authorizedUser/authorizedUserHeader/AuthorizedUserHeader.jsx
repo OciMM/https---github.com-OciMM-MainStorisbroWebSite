@@ -12,7 +12,7 @@ import AdminLeftSideBar from "../../AuthorizedAdmin/adminLeftSideBar/AdminLeftSi
 import ExitMenu from "./exitMenu/ExitMenu";
 import AuthorizedCustomerLeftSidebar from "../../AuthorizedCustomer/authorizedCustomerLeftSidebar/AuthorizedCustomerLeftSidebar";
 
-const AuthorizedUserHeader = ({ ismainpage = true, isCustomer }) => {
+const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
   const [open, setOpen] = useState(false);
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(false);
 

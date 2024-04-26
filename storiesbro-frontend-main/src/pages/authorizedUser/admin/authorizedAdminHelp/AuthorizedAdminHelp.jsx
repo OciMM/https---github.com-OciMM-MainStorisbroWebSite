@@ -13,7 +13,7 @@ const AuthorizedAdminHelp = () => {
   return (
     <Grid container>
       <Container>
-        <AuthorizedUserHeader ismainpage={false} />
+        <AuthorizedUserHeader ismainpage={true} />
         <Grid container>
           <Grid item lg={2} xs={0}>
             <AuthorizedAdminMenu />
