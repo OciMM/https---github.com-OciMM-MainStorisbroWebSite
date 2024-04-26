@@ -9,6 +9,8 @@ import Link from '@mui/material/Link';
 import { Tooltips } from "../../Onboardings/Tooltips";
 import Select from "@mui/material/Select";
 import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
 
 const Publics = () => {
   const [publics] = useContext(PublicsContext);
@@ -49,6 +51,8 @@ const Publics = () => {
               <Typography sx={{ color: "#878787", mr: 1 }}>
                 Сортировать по
               </Typography>
+              <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Подписчики</InputLabel>
               <Select
                   sx={{ p: 1 }}
                   labelId="demo-simple-select-label"
@@ -58,6 +62,7 @@ const Publics = () => {
                 <MenuItem>По возрастанию</MenuItem>
                 <MenuItem>По убыванию</MenuItem>
               </Select>
+              </FormControl>
             </Box>
           </Grid>
         </Grid>
