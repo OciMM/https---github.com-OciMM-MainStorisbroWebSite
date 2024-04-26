@@ -277,7 +277,7 @@ function App() {
         <Route
           path="/customer"
           element={
-            <AuthorizedUserPattern isCustomer={true}>
+            <AuthorizedUserPattern ismainpage={true} isCustomer={true}>
               <AuthorizedAdminPage />
             </AuthorizedUserPattern>
           }
