@@ -12,6 +12,13 @@ import cross from "./sidebarIcons/cross.svg";
 import MyButton from "../../../UI/buttons/MyButton";
 import { Link, NavLink } from "react-router-dom";
 
+// import up from "./images/up.svg";
+// import list from "./images/list.svg";
+// import lock from "./images/lock.svg";
+// import moneys from "./images/moneys.svg";
+// import question from "./images/question.svg";
+// import tagUser from "./images/tagUser.svg";
+
 const LeftSideBar = ({ open, setOpen }) => {
   return (
     <Modal
@@ -65,6 +72,7 @@ const LeftSideBar = ({ open, setOpen }) => {
             </MyButton>
           </Box>
         </Box>
+        {localStorage.getItem('statusAccount') === 'customer' &&
         <Box
           sx={{
             background: "white",
@@ -78,7 +86,7 @@ const LeftSideBar = ({ open, setOpen }) => {
         >
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="flash" src={flash} sx={{ mr: 1 }} />
-            <NavLink className="menuItem" to="/creatives">Креативы этот тут</NavLink>
+            <NavLink className="menuItem" to="/creatives">Креативы</NavLink>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
@@ -111,6 +119,52 @@ const LeftSideBar = ({ open, setOpen }) => {
             <NavLink className="menuItem" to="/customer-support">Тех. поддержка</NavLink>
           </Box>
         </Box>
+        }
+        
+
+        {localStorage.getItem('statusAccount') === 'admin' &&
+          <Box
+          sx={{
+            background: "white",
+            height: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            pt: { xs: 2, lg: 20 },
+            pl: 2,
+            outline: "none",
+          }}
+        >
+          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+            <Box component="img" alt="flash" src={flash} sx={{ mr: 1 }} />
+            <NavLink className="menuItem" to="/publics">Мои сообщества</NavLink>
+          </Box>
+
+          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+            <Box component="img" alt="lock" src={lock} sx={{ mr: 1 }} />
+            <NavLink className="menuItem" to="/statistic">Статистика</NavLink>
+          </Box>
+
+          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+            <Box component="img" alt="list" src={list} sx={{ mr: 1 }} />
+            <NavLink className="menuItem" to="/referal">Реф. система</NavLink>
+          </Box>
+
+          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+            <Box
+              component="img"
+              alt="messageQuestion"
+              src={messageQuestion}
+              sx={{ mr: 1 }}
+            />
+            <NavLink className="menuItem" to="/admin-help">Помощь</NavLink>
+          </Box>
+
+          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+            <Box component="img" alt="tagUser" src={tagUser} sx={{ mr: 1 }} />
+            <NavLink className="menuItem" to="/support">Тех. поддержка</NavLink>
+          </Box>
+        </Box>
+        }
       </Box>
     </Modal>
   );
