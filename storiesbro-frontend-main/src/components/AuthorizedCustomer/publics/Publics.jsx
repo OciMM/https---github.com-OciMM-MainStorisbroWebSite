@@ -8,6 +8,7 @@ import MyInput from "../../UI/input/MyInput";
 import Link from '@mui/material/Link';
 import { Tooltips } from "../../Onboardings/Tooltips";
 import Select from "@mui/material/Select";
+import MenuItem from '@mui/material/MenuItem';
 
 const Publics = () => {
   const [publics] = useContext(PublicsContext);
@@ -48,14 +49,15 @@ const Publics = () => {
               <Typography sx={{ color: "#878787", mr: 1 }}>
                 Сортировать по
               </Typography>
-              <Box className="grayBorder alignCenter" sx={{ p: 1 }}>
               <Select
+                  sx={{ p: 1 }}
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  label="Age"
-                />
-                <Box component="img" alt="arrow" src={arrowDown} />
-              </Box>
+                  label="Подписчики"
+                >
+                <MenuItem>По возрастанию</MenuItem>
+                <MenuItem>По убыванию</MenuItem>
+              </Select>
             </Box>
           </Grid>
         </Grid>
