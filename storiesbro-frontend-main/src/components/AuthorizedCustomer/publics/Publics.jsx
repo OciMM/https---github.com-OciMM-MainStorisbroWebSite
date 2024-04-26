@@ -51,7 +51,7 @@ const Publics = () => {
               <Typography sx={{ color: "#878787", mr: 1 }}>
                 Сортировать по
               </Typography>
-              <Box className="grayBorder alignCenter" sx={{ p: 1 }}>
+              <Box className="grayBorder alignCenter" sx={{ p: 1, width: 'auto' }}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Подписчики</InputLabel>
                 <Select
