@@ -7,6 +7,7 @@ import { PublicsContext } from "../../../context/PublicsContext";
 import MyInput from "../../UI/input/MyInput";
 import Link from '@mui/material/Link';
 import { Tooltips } from "../../Onboardings/Tooltips";
+import Select from "@mui/material/Select";
 
 const Publics = () => {
   const [publics] = useContext(PublicsContext);
@@ -48,7 +49,11 @@ const Publics = () => {
                 Сортировать по
               </Typography>
               <Box className="grayBorder alignCenter" sx={{ p: 1 }}>
-                <Typography sx={{ mr: 3 }}>Подписчики</Typography>
+              <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  label="Age"
+                />
                 <Box component="img" alt="arrow" src={arrowDown} />
               </Box>
             </Box>
