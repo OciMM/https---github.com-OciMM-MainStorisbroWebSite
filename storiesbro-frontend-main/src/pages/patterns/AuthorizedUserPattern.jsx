@@ -5,10 +5,10 @@ import AuthorizedUserHeader from "../../components/authorizedUser/authorizedUser
 import AuthorizedAdminMenu from "../../components/AuthorizedAdmin/menu/AuthorizedAdminMenu";
 import { PublicsContext } from "../../context/PublicsContext";
 import AuthorizedCustomerMenu from "../../components/AuthorizedCustomer/menu/AuthorizedCustomerMenu";
-
+ 
 const AuthorizedUserPattern = ({
   children,
-  ismainpage,
+  ismainpage = true,
   isCustomer = false,
   menu = true,
 }) => {
