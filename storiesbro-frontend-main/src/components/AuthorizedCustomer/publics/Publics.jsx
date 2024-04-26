@@ -59,9 +59,8 @@ const Publics = () => {
                   id="demo-simple-select"
                   label="subs"
                 >
-                  <MenuItem>Ten</MenuItem>
-                  <MenuItem>Twenty</MenuItem>
-                  <MenuItem>Thirty</MenuItem>
+                  <MenuItem>По возрастанию</MenuItem>
+                  <MenuItem>По убыванию</MenuItem>
                 </Select>
               </FormControl>
                 <Box component="img" alt="arrow" src={arrowDown} />

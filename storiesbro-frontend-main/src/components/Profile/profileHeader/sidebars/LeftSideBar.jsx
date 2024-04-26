@@ -78,7 +78,7 @@ const LeftSideBar = ({ open, setOpen }) => {
         >
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="flash" src={flash} sx={{ mr: 1 }} />
-            <NavLink className="menuItem" to="/creatives">Креативы</NavLink>
+            <NavLink className="menuItem" to="/creatives">Креативы этот тут</NavLink>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
