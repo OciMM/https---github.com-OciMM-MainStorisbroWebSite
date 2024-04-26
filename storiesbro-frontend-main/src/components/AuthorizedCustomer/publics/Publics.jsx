@@ -51,13 +51,14 @@ const Publics = () => {
               <Typography sx={{ color: "#878787", mr: 1 }}>
                 Сортировать по
               </Typography>
-              <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Подписчики</InputLabel>
+              <FormControl>
+              <InputLabel id="demo-simple-select-label">age</InputLabel>
               <Select
                   sx={{ p: 1 }}
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   label="Подписчики"
+                  value="Подписчики"
                 >
                 <MenuItem>По возрастанию</MenuItem>
                 <MenuItem>По убыванию</MenuItem>
