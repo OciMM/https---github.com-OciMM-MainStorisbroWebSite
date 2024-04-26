@@ -51,19 +51,21 @@ const Publics = () => {
               <Typography sx={{ color: "#878787", mr: 1 }}>
                 Сортировать по
               </Typography>
-              <FormControl>
-              <InputLabel id="demo-simple-select-label">age</InputLabel>
-              <Select
-                  sx={{ p: 1 }}
+              <Box className="grayBorder alignCenter" sx={{ p: 1 }}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Подписчики</InputLabel>
+                <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  label="Подписчики"
-                  value="Подписчики"
+                  label="subs"
                 >
-                <MenuItem>По возрастанию</MenuItem>
-                <MenuItem>По убыванию</MenuItem>
-              </Select>
+                  <MenuItem>Ten</MenuItem>
+                  <MenuItem>Twenty</MenuItem>
+                  <MenuItem>Thirty</MenuItem>
+                </Select>
               </FormControl>
+                <Box component="img" alt="arrow" src={arrowDown} />
+              </Box>
             </Box>
           </Grid>
         </Grid>
