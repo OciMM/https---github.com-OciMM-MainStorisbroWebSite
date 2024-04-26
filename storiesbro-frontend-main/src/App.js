@@ -445,7 +445,7 @@ function App() {
         <Route
           path="/customer-help"
           element={
-            <AuthorizedUserPattern isCustomer={true} menu={true}>
+            <AuthorizedUserPattern ismainpage={true} isCustomer={true} menu={true}>
               <AuthorizedAdminPage />
             </AuthorizedUserPattern>
           }

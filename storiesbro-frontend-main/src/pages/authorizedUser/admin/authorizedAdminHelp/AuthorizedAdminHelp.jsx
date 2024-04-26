@@ -8,7 +8,7 @@ import OwnVideosInstruction from "../../../../components/AuthorizedAdmin/ownVide
 import HowToIncrease from "../../../../components/AuthorizedAdmin/howToIncrease/HowToIncrease";
 import AuthorizedAdminMenu from "../../../../components/AuthorizedAdmin/menu/AuthorizedAdminMenu";
 import AuthorizedUserHeader from "../../../../components/authorizedUser/authorizedUserHeader/AuthorizedUserHeader";
-
+ 
 const AuthorizedAdminHelp = () => {
   return (
     <Grid container>

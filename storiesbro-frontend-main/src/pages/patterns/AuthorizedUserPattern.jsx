@@ -8,7 +8,7 @@ import AuthorizedCustomerMenu from "../../components/AuthorizedCustomer/menu/Aut
  
 const AuthorizedUserPattern = ({
   children,
-  ismainpage = true,
+  ismainpage,
   isCustomer = false,
   menu = true,
 }) => {
