@@ -4,13 +4,19 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import copy from "./images/copy.svg";
 import ProfileLinks from "./ProfileLinks";
+import ProfileLinksAdmin from "./ProfileLinksAdmin";
 import ProfileSteps from "./ProfileSteps";
 
 const ProfileLowComission = () => {
   const refUrl = "Storisbro.com/?_ref=2Rh46f3L";
   return (
     <Grid container>
-      <ProfileLinks />
+      {localStorage.getItem('statusAccount') === 'admin' &&
+        <ProfileLinksAdmin />
+      }
+      {localStorage.getItem('statusAccount') === 'customer' &&
+        <ProfileLinks />
+      }
       <Grid item md={5} xs={12} sx={{ m: "0 auto" }}>
         <Typography
           variant="h4"
