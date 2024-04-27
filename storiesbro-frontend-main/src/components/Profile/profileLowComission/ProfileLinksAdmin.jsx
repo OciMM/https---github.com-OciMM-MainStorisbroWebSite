@@ -71,17 +71,6 @@ const ProfileLinksAdmin = () => {
             mt: 2,
           }}
         >
-          <Box component="img" alt="check" src={comissionCheck} />
-          <Typography
-            sx={{
-              fontSize: { md: "24px", xs: "16px" },
-              fontWeight: 600,
-              width: { md: "60%", xs: "100%" },
-              ml: { md: 1, xs: 0 },
-            }}
-          >
-            Комиссия 5% + доход с рефералки
-          </Typography>
         </Box>
         <Typography
           sx={{
@@ -189,6 +178,17 @@ const ProfileLinksAdmin = () => {
             mt: 2,
           }}
         >
+        <Box component="img" alt="check" src={comissionCheck} />
+          <Typography
+            sx={{
+              fontSize: { md: "24px", xs: "16px" },
+              fontWeight: 600,
+              width: { md: "60%", xs: "100%" },
+              ml: { md: 1, xs: 0 },
+            }}
+          >
+            Комиссия 5% + доход с рефералки
+          </Typography>
         </Box>
 
       </Grid>
