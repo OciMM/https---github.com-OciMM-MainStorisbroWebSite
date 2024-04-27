@@ -21,6 +21,7 @@ import GetMoney from "./pages/profilePages/GetMoney";
 import CashPattern from "./pages/patterns/CashPattern";
 import ChangePassword from "./components/Profile/profilePassword/ChangePassword";
 import LowComission from "./pages/profilePages/LowComission";
+import LowComissionAdmin from "./pages/profilePages/LowComissionAdmin";
 import AuthorizedUserPattern from "./pages/patterns/AuthorizedUserPattern";
 import AuthorizedAdminPage from "./pages/authorizedUser/admin/authorizedAdminPage/AuthorizedAdminPage";
 import Creatives from "./pages/authorizedUser/admin/creatives/Creatives";
@@ -173,6 +174,7 @@ function App() {
         />
 
         <Route path="/cash/low-comission" element={<LowComission />} />
+        <Route path="/cash/low-comission-admin" element={<LowComissionAdmin />} />
 
         <Route
           path="/password"

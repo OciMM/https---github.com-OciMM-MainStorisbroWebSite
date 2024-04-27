@@ -1,5 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import copy from "./images/copy.svg";
 import ProfileLinks from "./ProfileLinks";
@@ -34,12 +35,14 @@ const ProfileLowComission = () => {
           >
             {refUrl}
           </Typography>
+          <CopyToClipboard text={refUrl}>
           <Box
             component="img"
             alt="copy"
             src={copy}
             sx={{ cursor: "pointer" }}
           />
+          </CopyToClipboard>
         </Box>
       </Grid>
 
