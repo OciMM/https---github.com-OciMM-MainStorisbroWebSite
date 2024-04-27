@@ -108,16 +108,6 @@ const ProfileLinksAdmin = () => {
             mt: 2,
           }}
         >
-          <Box component="img" alt="cross" src={comissionCross} />
-          <Typography
-            sx={{
-              fontSize: { md: "24px", xs: "16px" },
-              width: { md: "60%", xs: "100%" },
-              fontWeight: 600,
-            }}
-          >
-            Комиссия 20%
-          </Typography>
         </Box>
       </Grid>
 
