@@ -37,9 +37,10 @@ const LoginFormInfo = ({
     // setIsLoginFormOpen(false);
     // setIsConfirmPageOpen(true);
     // const response_check = axios.post(`${API_URL}api_users/check_email`, { email: yourEmail });
+    const email_lower = email.toLowerCase()
     axios
       .post(`${API_URL}login/`, {
-        email: email,
+        email: email_lower,
         password: password,
       }, { withCredentials: true, headers: {
         Authorization: "Bearer " + localStorage.getItem("token"), }

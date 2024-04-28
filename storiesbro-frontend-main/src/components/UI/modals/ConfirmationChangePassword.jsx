@@ -9,12 +9,13 @@ import axios from "axios";
 
 const ConfirmationChangePassword = ({ isChangePasswordOpen, setIsChangePasswordOpen, openChangePassword }) => {
     const handleClick = async () => {
-        const response = await axios.post(`${API_URL}api_users/check_email`, { email: yourEmail });
+      const email_lower = yourEmail.toLowerCase()
+        const response = await axios.post(`${API_URL}api_users/check_email`, { email: email_lower });
         const result = response.data['exists'];
         if (result) {
           console.log("Такая почта есть!!!")
           setIsChangePasswordOpen(false);
-          axios.post(`${API_URL}password_change/${yourEmail}/`)
+          axios.post(`${API_URL}password_change/${email_lower}/`)
           .then(response => {
             // Обработка успешного ответа, если необходимо
             console.log(response.data);
@@ -23,7 +24,7 @@ const ConfirmationChangePassword = ({ isChangePasswordOpen, setIsChangePasswordO
             // Обработка ошибки, если необходимо
             console.error(error);
           });
-          openChangePassword(yourEmail)
+          openChangePassword(email_lower)
         }
         else {
           console.log("Нет такой почты")
