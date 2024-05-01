@@ -5,11 +5,20 @@ import copy from "./images/copy.svg";
 import people from "./images/people.svg";
 import money from "./images/money.svg";
 import scrooge from "./images/scrooge.svg";
+import assept from "./images/assept.svg";
 
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const ReferalForm = () => {
-  const [link, setLink] = useState("Storisbro.com/?_ref=2Rh46f3L")
+  const [link, setLink] = useState("Storisbro.com/?_ref=2Rh46f3L");
+  const [icon, setIcon] = useState(copy);
+
+  const handleChangeIcon = () => {
+    setIcon(assept);
+    setTimeout(() => {
+      setIcon(copy);
+    }, 2000);
+  }
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -29,7 +38,7 @@ const ReferalForm = () => {
           {link}
         </Link>
         <CopyToClipboard text={link}>
-          <Box component="img" alt="copy" src={copy} sx={{ cursor: "pointer" }} />
+          <Box onClick={handleChangeIcon} component="img" alt="copy" src={icon} sx={{ cursor: "pointer" }} />
         </CopyToClipboard>
       </Box>
       <Typography
