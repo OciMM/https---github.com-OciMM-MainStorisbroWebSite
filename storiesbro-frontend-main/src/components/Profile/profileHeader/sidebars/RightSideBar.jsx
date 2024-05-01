@@ -35,59 +35,19 @@ const RightSideBar = ({ open, setOpen }) => {
           sx={{ position: "absolute", top: 15, left: 15, cursor: "pointer" }}
           onClick={() => setOpen(false)}
         />
-        <Box
-            component="img"
-            alt="exit"
-            src={exit}
-            sx={{ mr: 1, ml: 1 }}
-          />
         <NavLink
           className="navLink menuItem"
           to="/"
           onClick={handleExit}
         >
+          <Box
+            component="img"
+            alt="exit"
+            src={exit}
+            sx={{ mr: 1, ml: 1 }}
+          />
           Выйти
         </NavLink>
-        <Divider />
-        <NavLink
-          className="navLink menuItem"
-          to="/cash"
-          onClick={() => setOpen(false)}
-        >
-          <PaymentsIcon className="menuIcon" sx={{ mr: 1 }} />
-          Пополнение/вывод
-        </NavLink>
-        <Divider />
-
-        <NavLink
-          className="navLink menuItem"
-          to="/password"
-          onClick={() => setOpen(false)}
-        >
-          <LockIcon className="menuIcon" sx={{ mr: 1 }} />
-          Изменение пароля
-        </NavLink>
-        <Divider />
-
-        <NavLink
-          className="navLink menuItem"
-          to="/alerts"
-          onClick={() => setOpen(false)}
-        >
-          <SettingsIcon className="menuIcon" sx={{ mr: 1 }} />
-          Настройка уведомлений
-        </NavLink>
-        <Divider />
-
-        <NavLink
-          className="navLink menuItem"
-          to="/history"
-          onClick={() => setOpen(false)}
-        >
-          <NotificationsIcon className="menuIcon" sx={{ mr: 1 }} />
-          История уведомлений
-        </NavLink>
-        <Divider />
       </Box>
     </Modal>
   );
