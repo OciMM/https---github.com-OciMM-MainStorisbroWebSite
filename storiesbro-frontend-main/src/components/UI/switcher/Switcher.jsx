@@ -33,6 +33,41 @@ const Switcher = ({ ismainpage }) => {
   
 
   return (
+    <>
+    {localStorage.getItem('token') &&
+    <Box
+      sx={{
+        display: ismainpage ? "flex" : "none",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Typography
+        sx={{
+          fontSize: { sm: "22px", xs: "15px" },
+          fontWeight: 500,
+          color: isCustomer && "black",
+        }}
+      >
+        Заказчикам
+      </Typography>
+      <Switch
+        checked={!isCustomer}
+        onClick={handleSwitch}
+      />
+      <Typography
+        sx={{
+          fontSize: { sm: "22px", xs: "15px" },
+          fontWeight: 500,
+          color: isCustomer && "black",
+        }}
+      >
+        Владельцам сообществ
+      </Typography>
+    </Box>
+    }
+
+    {!localStorage.getItem('token') &&
     <Box
       sx={{
         display: ismainpage ? "flex" : "none",
@@ -63,6 +98,8 @@ const Switcher = ({ ismainpage }) => {
         Владельцам сообществ
       </Typography>
     </Box>
+    }
+    </>
   );
 };
 
