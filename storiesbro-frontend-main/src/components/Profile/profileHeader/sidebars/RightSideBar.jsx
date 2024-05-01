@@ -10,6 +10,10 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import cross from "./sidebarIcons/cross.svg";
 
 const RightSideBar = ({ open, setOpen }) => {
+  const handleExit = () => {
+    localStorage.clear();
+  };
+  
   return (
     <Modal open={open} onClose={() => setOpen(false)}>
       <Box
@@ -32,52 +36,11 @@ const RightSideBar = ({ open, setOpen }) => {
         />
         <NavLink
           className="navLink menuItem"
-          to="/profile"
-          onClick={() => setOpen(false)}
+          to="/"
+          onClick={handleExit}
         >
-          <PersonIcon className="menuIcon" sx={{ mr: 1 }} />
-          Данные пользователя
+          Выйти
         </NavLink>
-        <Divider />
-        <NavLink
-          className="navLink menuItem"
-          to="/cash"
-          onClick={() => setOpen(false)}
-        >
-          <PaymentsIcon className="menuIcon" sx={{ mr: 1 }} />
-          Пополнение/вывод
-        </NavLink>
-        <Divider />
-
-        <NavLink
-          className="navLink menuItem"
-          to="/password"
-          onClick={() => setOpen(false)}
-        >
-          <LockIcon className="menuIcon" sx={{ mr: 1 }} />
-          Изменение пароля
-        </NavLink>
-        <Divider />
-
-        <NavLink
-          className="navLink menuItem"
-          to="/alerts"
-          onClick={() => setOpen(false)}
-        >
-          <SettingsIcon className="menuIcon" sx={{ mr: 1 }} />
-          Настройка уведомлений
-        </NavLink>
-        <Divider />
-
-        <NavLink
-          className="navLink menuItem"
-          to="/history"
-          onClick={() => setOpen(false)}
-        >
-          <NotificationsIcon className="menuIcon" sx={{ mr: 1 }} />
-          История уведомлений
-        </NavLink>
-        <Divider />
       </Box>
     </Modal>
   );
