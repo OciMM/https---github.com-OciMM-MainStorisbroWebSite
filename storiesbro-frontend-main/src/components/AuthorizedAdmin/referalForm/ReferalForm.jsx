@@ -6,6 +6,7 @@ import people from "./images/people.svg";
 import money from "./images/money.svg";
 import scrooge from "./images/scrooge.svg";
 import assept from "./images/assept.svg";
+import assept_img from "./images/assept_img.png"
 
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
@@ -14,7 +15,7 @@ const ReferalForm = () => {
   const [icon, setIcon] = useState(copy);
 
   const handleChangeIcon = () => {
-    setIcon(assept);
+    setIcon(assept_img);
     setTimeout(() => {
       setIcon(copy);
     }, 2000);
