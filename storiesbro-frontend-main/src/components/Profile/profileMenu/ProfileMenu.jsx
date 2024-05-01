@@ -24,7 +24,7 @@ const ProfileMenu = () => {
     },
     {
       icon: <LockIcon sx={{ mr: 1 }} />,
-      linkText: "Измененеие пароля",
+      linkText: "Изменение пароля",
       linkHref: "/password",
     },
     {

@@ -13,8 +13,8 @@ const EmailConfiramtionFormModal = ({ open, setOpen, password }) => {
   const handleClick = async() => {
     try {
       const response = await axios.post(`${API_URL}password_code_confirm/${localStorage.getItem('email')}/${password}/${code}/`);
+      setOpen(false);
       console.log(response);
-      open(false);
     } catch (error) {
       console.error('Ошибка', error);
     }
