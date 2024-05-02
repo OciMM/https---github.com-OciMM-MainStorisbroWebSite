@@ -7,7 +7,7 @@ import money from "./images/money.svg";
 import scrooge from "./images/scrooge.svg";
 import assept from "./images/assept.svg";
 import assept_img from "./images/assept_img.png"
-
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const ReferalForm = () => {
@@ -15,7 +15,7 @@ const ReferalForm = () => {
   const [icon, setIcon] = useState(copy);
 
   const handleChangeIcon = () => {
-    setIcon(assept_img);
+    setIcon(CheckOutlinedIcon);
     setTimeout(() => {
       setIcon(copy);
     }, 2000);
