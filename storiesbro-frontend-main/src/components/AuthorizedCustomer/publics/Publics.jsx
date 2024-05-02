@@ -48,10 +48,10 @@ const Publics = () => {
                 alignItems: "center",
               }}
             >
-              <Typography sx={{ color: "#878787", mr: 1 }}>
+              <Typography sx={{ color: "#878787", mr: 3 }}>
                 Сортировать по
               </Typography>
-              
+              <Box className="grayBorder alignCenter" sx={{ p: 1, width: 'auto' }}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Подписчики</InputLabel>
                 <Select
@@ -63,7 +63,8 @@ const Publics = () => {
                   <MenuItem>По убыванию</MenuItem>
                 </Select>
               </FormControl>
-              
+                <Box component="img" alt="arrow" src={arrowDown} />
+              </Box>
             </Box>
           </Grid>
         </Grid>

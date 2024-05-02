@@ -64,6 +64,10 @@ const LoginForm = ({ isLoginFormOpen, setIsLoginFormOpen }) => {
         isRegistrationForm={isRegistrationForm}
         setIsRegistrationForm={setIsRegistrationForm}
         handleLoginForm={handleLoginForm}
+        handleConfirmForm={(userId) => {
+          setIsConfirmPageOpen(true);
+          setUserId(userId);
+        }}
       />
 
       <MyModal
