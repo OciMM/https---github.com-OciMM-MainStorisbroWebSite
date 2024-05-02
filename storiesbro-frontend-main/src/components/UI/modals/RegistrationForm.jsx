@@ -17,6 +17,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import { setTokken } from "../../../store/userReducer";
 
+import ErrorMessage from "../errors/ErrorMessage";
+
 const REGISTER_LINK = `${API_URL}register/`;
 
 const RegistrationForm = ({
@@ -43,7 +45,11 @@ const RegistrationForm = ({
   const navigate = useNavigate();
 
   const handleRegister = () => {
-    axios.post(REGISTER_LINK, { email: email, password: password })
+    if(password.length < 6) {
+      setError(true);
+    }
+    else {
+      axios.post(REGISTER_LINK, { email: email, password: password })
       .then(response => {
         setUserId(response.data.id);
         console.log(response.data.id)  // Получение id пользователя и сохранение его в состоянии
@@ -86,6 +92,7 @@ const RegistrationForm = ({
       .catch(error => {
         console.error("Ошибка регистрации:", error);
       });
+    }
   };
 
   const [isChecked, setIsChecked] = useState(false);
@@ -110,6 +117,10 @@ const RegistrationForm = ({
           isPassword={true}
           value={password}
           setValue={setPassword}
+        />
+        <ErrorMessage
+        error={error}
+        errorMessage="*В пароле должно быть минимум 6 символов"
         />
         <FormControlLabel
           control={<Checkbox />}
