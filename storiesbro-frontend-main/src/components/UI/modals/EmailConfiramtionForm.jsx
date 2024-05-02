@@ -11,7 +11,7 @@ import axios from 'axios';
 
 // const CONFIRM_LINK = `${API_URL}activate/`;
 
-const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId, status=false }) => {
+const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId }) => {
   const [error, setError] = useState(false);
   const [code, setCode] = useState("");
 
@@ -21,7 +21,7 @@ const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId, stat
     try {
       console.log("Отправка запроса активации:", `${API_URL}activate/${userId}/${code}/`);
       const response = await axios.post(`${API_URL}activate/${userId}/${code}/`);
-      status = true;
+      localStorage.setItem('statusActivate', true)
       if (response.data.message) {
         console.log(response.data.message);
         // Возможно, вам нужно выполнить какие-то действия после успешной активации
