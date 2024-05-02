@@ -119,6 +119,7 @@ function App() {
 
 // автоматическая очистка кэша
   useEffect(() => {
+    console.log("Таймер запущен");
     if(localStorage.getItem('token')){
       setTimeout(() => {
         localStorage.clear();
