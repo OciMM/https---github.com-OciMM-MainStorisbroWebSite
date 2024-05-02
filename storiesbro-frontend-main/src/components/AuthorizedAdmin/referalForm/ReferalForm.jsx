@@ -15,7 +15,7 @@ const ReferalForm = () => {
   const [icon, setIcon] = useState(copy);
 
   const handleChangeIcon = () => {
-    setIcon(CheckOutlinedIcon);
+    setIcon();
     setTimeout(() => {
       setIcon(copy);
     }, 2000);
@@ -39,7 +39,7 @@ const ReferalForm = () => {
           {link}
         </Link>
         <CopyToClipboard text={link}>
-          <Box onClick={handleChangeIcon} component="img" alt="copy" src={icon} sx={{ cursor: "pointer" }} />
+          <Box onClick={handleChangeIcon} component="img" src={icon} sx={{ cursor: "pointer" }} />
         </CopyToClipboard>
       </Box>
       <Typography
