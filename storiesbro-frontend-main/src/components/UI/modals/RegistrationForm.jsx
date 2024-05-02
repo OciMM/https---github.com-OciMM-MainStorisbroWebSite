@@ -49,7 +49,6 @@ const RegistrationForm = ({
         console.log(response.data.id)  // Получение id пользователя и сохранение его в состоянии
         console.log(userId)
         setIsEmailConfirm(true);
-        if(localStorage.getItem('statusActivate') == true) {
           const email_lower = email.toLowerCase()
           axios
             .post(`${API_URL}login/`, {
@@ -83,7 +82,6 @@ const RegistrationForm = ({
             .catch(function (error) {
               setError(true); // Устанавливаем флаг ошибки в true при ошибке запроса
             });
-        }
       })
       .catch(error => {
         console.error("Ошибка регистрации:", error);
