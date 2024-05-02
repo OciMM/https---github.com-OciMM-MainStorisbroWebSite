@@ -126,7 +126,7 @@ function App() {
         console.log("Таймер запущен");
       }, 3600000)
     }
-  })
+  }, [])
 
 
   return (
