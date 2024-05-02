@@ -49,7 +49,7 @@ const RegistrationForm = ({
         console.log(response.data.id)  // Получение id пользователя и сохранение его в состоянии
         console.log(userId)
         setIsEmailConfirm(true);
-        while(localStorage.getItem('statusActivate') == true) {
+        if(localStorage.getItem('statusActivate') == true) {
           const email_lower = email.toLowerCase()
           axios
             .post(`${API_URL}login/`, {
