@@ -53,6 +53,7 @@ import Publics from "./components/AuthorizedCustomer/publics/Publics";
 import CustomerHelp from "./components/AuthorizedCustomer/customerHelp/CustomerHelp";
 import HelpSteps from "./components/AuthorizedAdmin/helpSteps/HelpSteps";
 import AuthQRCode from "./components/QR/qrCode";
+import { useNavigate } from "react-router-dom";
 
 import { API_URL } from "./constants/constatns";
 
@@ -65,6 +66,8 @@ function App() {
   const [creatives, setCreatives] = useState([]);
   const [arhive, setArhive] = useState([]);
   const userId = localStorage.getItem('id')
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Функция для получения сообществ с бэкенда
@@ -113,6 +116,17 @@ function App() {
     // Вызов функции для загрузки сообществ при монтировании компонента
     fetchCreativesAll();
   }, [userId]); // Пустой массив зависимостей означает, что эффект будет выполнен только один раз при монтировании
+
+// автоматическая очистка кэша
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      setTimeout(() => {
+        localStorage.clear();
+        navigate('/');
+        console.log("Таймер запущен");
+      }, 3600000)
+    }
+  })
 
 
   return (
