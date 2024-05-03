@@ -15,7 +15,7 @@ import { setTokken } from "../../../store/userReducer";
 
 // const CONFIRM_LINK = `${API_URL}activate/`;
 
-const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId }) => {
+const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId, handleConfirmForm }) => {
   const [error, setError] = useState(false);
   const [code, setCode] = useState("");
   const [userSpecId, setUserId] = useState(null);
@@ -27,7 +27,7 @@ const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId }) =>
 
   const navigate = useNavigate();
 
-  const handleConfirmForm = async () => {
+  const handleConfirmFormClick = async () => {
     setIsEmailConfirm(false);
   
     try {
@@ -92,7 +92,7 @@ const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId }) =>
       <MyInput label="Введите код" value={code} setValue={setCode} />
       <ErrorMessage error={error} errorMessage="*Неверный код" />
       <Box onClick={() => setIsEmailConfirm(false)}>
-        <GradientButton handleClick={handleConfirmForm}>Готово</GradientButton>
+        <GradientButton handleClick={handleConfirmFormClick}>Готово</GradientButton>
       </Box>
     </MyModal>
   );

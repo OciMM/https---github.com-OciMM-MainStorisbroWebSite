@@ -68,6 +68,8 @@ const RegistrationForm = ({
   const [isEmailConfirm, setIsEmailConfirm] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [isConfirmFormOpen, setIsConfirmPageOpen] = useState(false);
   
   return (
     <>
@@ -75,6 +77,10 @@ const RegistrationForm = ({
         isEmailConfirm={isEmailConfirm}
         setIsEmailConfirm={setIsEmailConfirm}
         userId={userId}  // Передайте userId в компонент EmailConfirmationForm
+        handleConfirmForm={(userId) => {
+          setIsConfirmPageOpen(true);
+          setUserId(userId);
+        }}
       />
       <MyModal
         title="Регистрация"
