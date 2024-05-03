@@ -130,26 +130,8 @@ function App() {
 
   return (
     <Context.Provider value={[isCustomer, setIsCustomer]}>
+      {localStorage.getItem('token') &&
       <Routes>
-        <Route
-          path="/"
-          element={
-            isCustomer ? (
-              <CustomerPage
-                setIsLoginFormOpen={setIsLoginFormOpen}
-                isLoginFormOpen={isLoginFormOpen}
-                ismainpage={true}
-              />
-            ) : (
-              <AdminPage
-                setIsLoginFormOpen={setIsLoginFormOpen}
-                isLoginFormOpen={isLoginFormOpen}
-                ismainpage={true}
-              />
-            )
-          }
-        />
-
         <Route
           path="/profile"
           element={
@@ -478,6 +460,27 @@ function App() {
           element={<AuthQRCode/>}
         />
       </Routes>
+      }
+      {!localStorage.getItem('token') &&
+      <Route
+        path="/"
+        element={
+          isCustomer ? (
+            <CustomerPage
+              setIsLoginFormOpen={setIsLoginFormOpen}
+              isLoginFormOpen={isLoginFormOpen}
+              ismainpage={true}
+            />
+          ) : (
+            <AdminPage
+              setIsLoginFormOpen={setIsLoginFormOpen}
+              isLoginFormOpen={isLoginFormOpen}
+              ismainpage={true}
+            />
+          )
+        }
+      />
+      }
     </Context.Provider>
   );
 }
