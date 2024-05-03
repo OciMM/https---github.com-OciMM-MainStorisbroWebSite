@@ -120,12 +120,11 @@ function App() {
 // автоматическая очистка кэша
     
   while(localStorage.getItem('token')){
-    console.log("Таймер запущен");
       setTimeout(() => {
         localStorage.clear();
         navigate('/');
         console.log("Обновление");
-      }, 3600000)
+      }, 10000)
     }
 
 

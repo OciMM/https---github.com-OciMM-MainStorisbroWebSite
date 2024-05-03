@@ -49,42 +49,42 @@ const RegistrationForm = ({
       setError(true);
       setIsEmailConfirm(false);
     }
-    if(password.length > 6) {
+    if(password.length >= 6) {
       axios.post(REGISTER_LINK, { email: email, password: password })
       .then(response => {
         setUserId(response.data.id);
         console.log(response.data.id)  // Получение id пользователя и сохранение его в состоянии
         console.log(userId)
-        setIsEmailConfirm(true);
-          const email_lower = email.toLowerCase()
-          axios
-            .post(`${API_URL}login/`, {
-              email: email_lower,
-              password: password,
-            }, { withCredentials: true, headers: {
-              Authorization: "Bearer " + localStorage.getItem("token"), }
-            })
-            .then(function (response) {
-              setUserId(response.data.id);
-              handleConfirmForm(response.data.id)
+        // setIsEmailConfirm(true);
+        const email_lower = email.toLowerCase()
+        axios
+          .post(`${API_URL}login/`, {
+            email: email_lower,
+            password: password,
+          }, { withCredentials: true, headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"), }
+          })
+          .then(function (response) {
+            setUserId(response.data.id);
+            handleConfirmForm(response.data.id)
               // setIsConfirmPageOpen(true);
               // setIsLoginFormOpen(false);
-              axios.defaults.headers.common["Authorization"] =
-                "Bearer " + response.data["access"];
+            axios.defaults.headers.common["Authorization"] =
+              "Bearer " + response.data["access"];
 
-              localStorage.setItem("token", response.data["access"]);
-              localStorage.setItem("refresh", response.data["refresh"])
-              localStorage.setItem("id", response.data["id"])
-              localStorage.setItem("count_of_visit", response.data["count_of_visit"] + 1)
-              dispatch(setTokken(response.data["access"]));
+            localStorage.setItem("token", response.data["access"]);
+            localStorage.setItem("refresh", response.data["refresh"])
+            localStorage.setItem("id", response.data["id"])
+            localStorage.setItem("count_of_visit", response.data["count_of_visit"] + 1)
+            dispatch(setTokken(response.data["access"]));
               
-              localStorage.removeItem('statusActivate')
-              const checkStatus = localStorage.getItem("statusAccount");
-                if (checkStatus == "admin") {
-                  navigate('/admin');
-                } if (checkStatus == "customer") {
-                  navigate('/customer');
-                };
+            localStorage.removeItem('statusActivate')
+            const checkStatus = localStorage.getItem("statusAccount");
+              if (checkStatus == "admin") {
+                navigate('/admin');
+              } if (checkStatus == "customer") {
+                navigate('/customer');
+              };
             })
             .catch(function (error) {
               setError(true); // Устанавливаем флаг ошибки в true при ошибке запроса
