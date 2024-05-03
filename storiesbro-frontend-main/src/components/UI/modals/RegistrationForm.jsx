@@ -45,8 +45,11 @@ const RegistrationForm = ({
   const navigate = useNavigate();
 
   const handleRegister = () => {
+    console.log(typeof password.length)
     if(password.length < 6) {
       setError(true);
+      console.log("ОШИБКА, пароль слишком маленький");
+      console.log(typeof password.length)
     };
     if(password.length > 6) {
       axios.post(REGISTER_LINK, { email: email, password: password })
