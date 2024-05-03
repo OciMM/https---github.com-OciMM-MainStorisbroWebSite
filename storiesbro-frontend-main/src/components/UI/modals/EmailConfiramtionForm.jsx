@@ -35,7 +35,7 @@ const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId }) =>
       const response = await axios.post(`${API_URL}activate/${userId}/${code}/`);
       localStorage.setItem('statusActivate', true);
       const email_lower = email.toLowerCase()
-      axios
+       await axios
           .post(`${API_URL}login/`, {
             email: email_lower,
             password: password,
