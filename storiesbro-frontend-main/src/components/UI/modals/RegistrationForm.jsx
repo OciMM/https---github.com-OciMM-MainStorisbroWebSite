@@ -28,7 +28,6 @@ const RegistrationForm = ({
   handleConfirmForm
 }) => {
   const handleConfirmEmail = () => {
-    setIsRegistrationForm(false);
     setIsEmailConfirm(false);
     setIsChecked(false);
   };
@@ -51,6 +50,7 @@ const RegistrationForm = ({
       setIsRegistrationForm(true);
     }
     if(password.length >= 6) {
+      setIsRegistrationForm(false);
       axios.post(REGISTER_LINK, { email: email, password: password })
       .then(response => {
         setUserId(response.data.id);
