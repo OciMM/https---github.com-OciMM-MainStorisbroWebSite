@@ -118,16 +118,15 @@ function App() {
   }, [userId]); // Пустой массив зависимостей означает, что эффект будет выполнен только один раз при монтировании
 
 // автоматическая очистка кэша
-  useEffect(() => {
+    
+  while(localStorage.getItem('token')){
     console.log("Таймер запущен");
-    while(localStorage.getItem('token')){
       setTimeout(() => {
         localStorage.clear();
         navigate('/');
-        console.log("Таймер запущен");
+        console.log("Обновление");
       }, 3600000)
     }
-  }, [])
 
 
   return (
