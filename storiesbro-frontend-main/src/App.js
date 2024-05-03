@@ -120,7 +120,7 @@ function App() {
 // автоматическая очистка кэша
   useEffect(() => {
     console.log("Таймер запущен");
-    if(localStorage.getItem('token')){
+    while(localStorage.getItem('token')){
       setTimeout(() => {
         localStorage.clear();
         navigate('/');
