@@ -119,7 +119,7 @@ function App() {
 
 // автоматическая очистка кэша
     
-  while(localStorage.getItem('token')){
+  if(localStorage.getItem('token')){
       setTimeout(() => {
         localStorage.clear();
         navigate('/');
