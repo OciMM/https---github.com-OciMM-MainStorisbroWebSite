@@ -124,7 +124,7 @@ function App() {
         localStorage.clear();
         navigate('/');
         console.log("Обновление");
-      }, 10000)
+      }, 3600000)
     }
 
 

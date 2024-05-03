@@ -29,7 +29,7 @@ const RegistrationForm = ({
 }) => {
   const handleConfirmEmail = () => {
     setIsRegistrationForm(false);
-    setIsEmailConfirm(true);
+    setIsEmailConfirm(false);
     setIsChecked(false);
   };
 
@@ -55,7 +55,7 @@ const RegistrationForm = ({
         setUserId(response.data.id);
         console.log(response.data.id)  // Получение id пользователя и сохранение его в состоянии
         console.log(userId)
-        // setIsEmailConfirm(true);
+        setIsEmailConfirm(true);
         const email_lower = email.toLowerCase()
         axios
           .post(`${API_URL}login/`, {
