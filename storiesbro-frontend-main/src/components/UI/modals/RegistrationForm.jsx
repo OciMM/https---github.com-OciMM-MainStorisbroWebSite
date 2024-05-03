@@ -47,8 +47,8 @@ const RegistrationForm = ({
   const handleRegister = () => {
     if(password.length < 6) {
       setError(true);
-      setIsEmailConfirm(false);
-    };
+      setIsEmailConfirm(true);
+    }
     if(password.length > 6) {
       axios.post(REGISTER_LINK, { email: email, password: password })
       .then(response => {
