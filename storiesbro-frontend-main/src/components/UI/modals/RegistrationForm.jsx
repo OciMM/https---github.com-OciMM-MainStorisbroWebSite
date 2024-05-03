@@ -81,6 +81,8 @@ const RegistrationForm = ({
           setIsConfirmPageOpen(true);
           setUserId(userId);
         }}
+        emailLogin={email}
+        passwordLogin={password}
       />
       <MyModal
         title="Регистрация"

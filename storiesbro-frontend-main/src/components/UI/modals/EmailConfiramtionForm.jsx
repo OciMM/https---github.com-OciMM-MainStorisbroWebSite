@@ -15,12 +15,12 @@ import { setTokken } from "../../../store/userReducer";
 
 // const CONFIRM_LINK = `${API_URL}activate/`;
 
-const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId, handleConfirmForm }) => {
+const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId, handleConfirmForm, emailLogin, passwordLogin }) => {
   const [error, setError] = useState(false);
   const [code, setCode] = useState("");
   const [userSpecId, setUserId] = useState(null);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   
 
   const dispatch = useDispatch();
@@ -34,11 +34,11 @@ const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId, hand
       console.log("Отправка запроса активации:", `${API_URL}activate/${userId}/${code}/`);
       const response = await axios.post(`${API_URL}activate/${userId}/${code}/`);
       localStorage.setItem('statusActivate', true);
-      const email_lower = email.toLowerCase()
+      const email_lower = emailLogin.toLowerCase()
        await axios
           .post(`${API_URL}login/`, {
             email: email_lower,
-            password: password,
+            password: passwordLogin,
           }, { withCredentials: true, headers: {
             Authorization: "Bearer " + localStorage.getItem("token"), }
           })
