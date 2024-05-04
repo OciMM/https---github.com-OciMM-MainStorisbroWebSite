@@ -221,7 +221,7 @@ function App() {
           path="/admin"
           element={
             <AuthorizedUserPattern ismainpage={true}>
-              <AuthorizedAdminPage />
+              <AuthorizedAdminHelp/>
             </AuthorizedUserPattern>
           }
         />
