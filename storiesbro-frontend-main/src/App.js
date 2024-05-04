@@ -220,9 +220,7 @@ function App() {
         <Route
           path="/admin"
           element={
-            <AuthorizedUserPattern ismainpage={true}>
-              <AuthorizedAdminHelp/>
-            </AuthorizedUserPattern>
+            <AuthorizedAdminHelp/>
           }
         />
 
