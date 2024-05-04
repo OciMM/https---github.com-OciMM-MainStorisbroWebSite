@@ -1,6 +1,6 @@
 import { Box, Divider, Modal, Typography } from "@mui/material";
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 
 import list from "./images/list.svg";
 import moneys from "./images/moneys.svg";
@@ -58,7 +58,9 @@ const AdminLeftSideBar = ({ open, setOpen }) => {
           </Typography>
           <Box sx={{ width: "75%" }}>
             <MyButton options={{ background: "#E37E31", color: "white" }}>
-              Пополнить
+            <Link to="/cash" style={{ textDecoration: "none" }}>
+              <Typography sx={{ color: "white" }}>Пополнить</Typography>
+            </Link>
             </MyButton>
           </Box>
         </Box>

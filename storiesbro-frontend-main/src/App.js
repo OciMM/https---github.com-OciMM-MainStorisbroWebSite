@@ -132,12 +132,13 @@ function App() {
     <Context.Provider value={[isCustomer, setIsCustomer]}>
       {localStorage.getItem('token') &&
       <Routes>
+
         <Route
           path="/"
           element={
-            <AuthorizedUserPattern ismainpage={true}>
-              <AuthorizedAdminPage />
-            </AuthorizedUserPattern>
+            <Profile title="Настройка профиля">
+              <ProfileData />
+            </Profile>
           }
         />
 
