@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-// import vca from "./images/vca.png";
+import vca from "./images/vca.png";
 import AuthorizedAdminCarusel from "../../UI/myCarousel/AuthorizedAdminCarusel";
 
 const Vca = () => {
@@ -17,7 +17,7 @@ const Vca = () => {
       <Typography className="title" sx={{ mt: 4 }}>
         Примеры стандартных ВЦА
       </Typography>
-      {/* <AuthorizedAdminCarusel image={vca} /> */}
+      <AuthorizedAdminCarusel image={vca} />
     </Box>
   );
 };
