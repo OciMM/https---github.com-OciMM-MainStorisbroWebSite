@@ -125,7 +125,13 @@ function App() {
         navigate('/');
         console.log("Обновление");
       }, 3600000)
-    }
+  };
+
+  if(localStorage.getItem('statusAccount') == 'admin'){
+    navigate('/admin');
+  } if(localStorage.getItem('statusAccount') == 'customer'){
+    navigate('/customer');
+  }
 
 
   return (
