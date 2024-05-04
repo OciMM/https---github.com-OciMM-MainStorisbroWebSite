@@ -1,7 +1,7 @@
 import React from "react";
 import AuthorizedAdminCarusel from "../../UI/myCarousel/AuthorizedAdminCarusel";
 
-// import jca from "./images/jca.png";
+import jca from "./images/jca.png";
 import { Box, Typography } from "@mui/material";
 
 const Jca = () => {
@@ -17,7 +17,7 @@ const Jca = () => {
       <Typography className="title" sx={{ mt: 4 }}>
         Примеры стандартных ЖЦА
       </Typography>
-      {/* <AuthorizedAdminCarusel image={jca} /> */}
+      <AuthorizedAdminCarusel image={jca} />
     </Box>
   );
 };

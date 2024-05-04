@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-// import mca from "./images/mca.png";
+import mca from "./images/mca.png";
 import AuthorizedAdminCarusel from "../../UI/myCarousel/AuthorizedAdminCarusel";
 
 const Mca = () => {
@@ -16,7 +16,7 @@ const Mca = () => {
       <Typography className="title" sx={{ mt: 4 }}>
         Примеры стандартных МЦА
       </Typography>
-      {/* <AuthorizedAdminCarusel image={mca} /> */}
+      <AuthorizedAdminCarusel image={mca} />
     </Box>
   );
 };
