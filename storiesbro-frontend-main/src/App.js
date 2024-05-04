@@ -127,11 +127,11 @@ function App() {
       }, 3600000)
   };
 
-  if(localStorage.getItem('statusAccount') == 'admin'){
-    navigate('/admin');
-  } if(localStorage.getItem('statusAccount') == 'customer'){
-    navigate('/customer');
-  }
+  // if(localStorage.getItem('statusAccount') == 'admin'){
+  //   navigate('/admin');
+  // } if(localStorage.getItem('statusAccount') == 'customer'){
+  //   navigate('/customer');
+  // }
 
 
   return (
