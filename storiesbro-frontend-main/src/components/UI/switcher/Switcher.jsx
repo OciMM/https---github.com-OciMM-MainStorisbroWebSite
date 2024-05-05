@@ -14,16 +14,16 @@ const Switcher = ({ ismainpage }) => {
   
 
   const handleSwitch = () =>{
-    setIsCustomer(isCustomer)
-
-    // переключатель
-    if(localStorage.getItem('token')) {
-      if(!isCustomer){
-        navigate('/admin');
-      } if(isCustomer){
+    setIsCustomer(!isCustomer)
+    
+    if (refresh && token && id) {
+      if (statusAccount == 'customer') {
         navigate('/customer');
+      } if (statusAccount == 'admin') {
+        navigate('/admin');
       };
     };
+
   };
   
   if (isCustomer) {
