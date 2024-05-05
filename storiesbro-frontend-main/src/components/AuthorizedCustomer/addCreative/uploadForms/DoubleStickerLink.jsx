@@ -5,14 +5,14 @@ import MyInput from "../../../UI/input/MyInput";
 import MyButton from "../../../UI/buttons/MyButton";
 import { addDoubleSticker } from "../../../../api/creatives";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import redirectPng from "../images/redirect.png"
 
 const DoubleStickerLink = () => {
   const [link, setLink] = useState("");
   const [link1, setLink1] = useState("");
   const [title, setTitle] = useState("");
-
+  const navigate = useNavigate();
   const user_id = localStorage.getItem("id");
 
   const handleClickCreative = () => {
@@ -26,9 +26,8 @@ const DoubleStickerLink = () => {
         alt="back"
         src={redirectPng}
         sx={{position: "absolute", float: "left", width: "45px", height: "38", cursor: "pointer"}}
-      >
-        <Link to="/creatives/add-creative" />
-      </Box>
+        onClick={() => navigate("/creatives/add-creative")}
+      />
     <Box className="grid columnCenter">
       <Typography className="title">Ссылка-стикер</Typography>
       <Box sx={{ width: { md: "30%", xs: "100%" } }}>

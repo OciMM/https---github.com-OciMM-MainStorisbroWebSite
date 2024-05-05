@@ -22,7 +22,7 @@ const AddCreative = () => {
         alt="back"
         src={redirectPng}
         sx={{position: "absolute", float: "left", width: "45px", height: "38", cursor: "pointer"}}
-        onClick={() => navigate("/customer")}
+        onClick={() => navigate("/creatives")}
       />
       {count === 1 && (
          <>

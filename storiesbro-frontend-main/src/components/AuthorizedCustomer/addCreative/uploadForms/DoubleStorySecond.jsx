@@ -46,9 +46,8 @@ const DoubleStoriSecond = ({ onValuesChange }) => {
         alt="back"
         src={redirectPng}
         sx={{position: "absolute", float: "left", width: "45px", height: "38", cursor: "pointer"}}
-      >
-        <Link to="/creatives/add-creative" />
-      </Box>
+        onClick={() => navigate("/creatives/add-creative")}
+      />
       <Box
         className="justifyCenter"
         sx={{ flexDirection: { md: "row", xs: "column" } }}
