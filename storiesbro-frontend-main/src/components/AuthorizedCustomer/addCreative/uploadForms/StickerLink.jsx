@@ -18,13 +18,14 @@ const StickerLink = () => {
   };
 
   return (
-    <Box className="grid columnCenter">
+    <Box>
       <Box
         component="img"
         alt="back"
         src={redirectPng}
         sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
       />
+    <Box className="grid columnCenter">
       <Typography className="title">Ссылка-стикер</Typography>
       <Box sx={{ width: { md: "30%", xs: "100%" } }}>
         <MyInput
@@ -37,6 +38,7 @@ const StickerLink = () => {
           <MyButton onClick={handleClickCreative} options={{ background: "#4CD640" }}>Загрузить</MyButton>
         </Box>
       </Box>
+    </Box>
     </Box>
   );
 };
