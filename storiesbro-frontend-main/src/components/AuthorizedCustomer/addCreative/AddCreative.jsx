@@ -15,6 +15,11 @@ const AddCreative = () => {
 
   return (
     <Box className="grid" onClick={handleIncrementCount}>
+      <Box
+        component="img"
+        alt="back"
+        sx={{position: "absolute", float: "left"}}
+      />
       {count === 1 && (
          <>
          <div
