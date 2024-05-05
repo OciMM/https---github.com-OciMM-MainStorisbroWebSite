@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { Context } from "../../../context/Context";
 import { useNavigate } from "react-router-dom";
 
-const Switcher = ({ ismainpage }) => {
+const Switcher = ({ ismainpage, activeSwitcher=false }) => {
   const [isCustomer, setIsCustomer] = useContext(Context);
   
   const refresh = localStorage.getItem('refresh')
@@ -30,6 +30,10 @@ const Switcher = ({ ismainpage }) => {
     localStorage.setItem("statusAccount", "customer")
   } if(!isCustomer) {
     localStorage.setItem("statusAccount", "admin")
+  };
+
+  if(activeSwitcher == true) {
+    handleSwitch()
   };
   
 
