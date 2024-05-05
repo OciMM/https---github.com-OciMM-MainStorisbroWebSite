@@ -127,16 +127,7 @@ function App() {
       }, 3600000)
   };
 
-  if(localStorage.getItem('token')) {
-    if(localStorage.getItem('statusAccount') == 'admin'){
-      navigate('/admin')
-    } if(localStorage.getItem('statusAccount') == 'customer'){
-      navigate('/customer')
-    }
-  };
   
-
-
   return (
     <Context.Provider value={[isCustomer, setIsCustomer]}>
       {localStorage.getItem('token') &&
