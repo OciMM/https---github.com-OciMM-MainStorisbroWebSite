@@ -23,6 +23,12 @@ const Switcher = ({ ismainpage }) => {
         navigate('/admin');
       };
     };
+
+    if(localStorage.getItem('statusAccount') == 'admin'){
+      navigate('/admin');
+    } if(localStorage.getItem('statusAccount') == 'customer'){
+      navigate('/customer');
+    };
   };
   
   if (isCustomer) {
