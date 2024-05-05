@@ -22,9 +22,7 @@ const AddCreative = () => {
         alt="back"
         src={redirectPng}
         sx={{position: "absolute", float: "left", width: "45px", height: "38", cursor: "pointer"}}
-      >
-        <Link to="/customer" />
-      </Box>
+      />
       {count === 1 && (
          <>
          <div
