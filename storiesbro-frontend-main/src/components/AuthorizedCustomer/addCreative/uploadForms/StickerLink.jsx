@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 import MyInput from "../../../UI/input/MyInput";
 import MyButton from "../../../UI/buttons/MyButton";
 import { addSticker } from "../../../../api/creatives";
+import { Link } from "react-router-dom";
 
 import redirectPng from "../images/redirect.png"
 
@@ -23,8 +24,10 @@ const StickerLink = () => {
         component="img"
         alt="back"
         src={redirectPng}
-        sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
-      />
+        sx={{position: "absolute", float: "left", width: "45px", height: "38", cursor: "pointer"}}
+      >
+        <Link to="/creatives/add-creative" />
+      </Box>
     <Box className="grid columnCenter">
       <Typography className="title">Ссылка-стикер</Typography>
       <Box sx={{ width: { md: "30%", xs: "100%" } }}>

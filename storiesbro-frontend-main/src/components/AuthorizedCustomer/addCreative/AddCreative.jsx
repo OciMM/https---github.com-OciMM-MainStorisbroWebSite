@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Tooltips } from "../../Onboardings/Tooltips";
 import redirectPng from "./images/redirect.png";
+import { Link } from "react-router-dom";
 
 const AddCreative = () => {
   const count_of_visit = localStorage.getItem['count_of_visit']
@@ -20,8 +21,10 @@ const AddCreative = () => {
         component="img"
         alt="back"
         src={redirectPng}
-        sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
-      />
+        sx={{position: "absolute", float: "left", width: "45px", height: "38", cursor: "pointer"}}
+      >
+        <Link to="/customer" />
+      </Box>
       {count === 1 && (
          <>
          <div

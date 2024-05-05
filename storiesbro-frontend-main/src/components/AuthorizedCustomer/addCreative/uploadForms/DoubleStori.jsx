@@ -12,6 +12,7 @@ import MyDropZone from "../../../UI/myDropZone/MyDropZone";
 import MyInput from "../../../UI/input/MyInput";
 import MyButton from "../../../UI/buttons/MyButton";
 
+import { Link } from "react-router-dom";
 import { addDoubleCreative } from "../../../../api/creatives";
 import redirectPng from "../images/redirect.png"
 
@@ -57,8 +58,10 @@ const DoubleStori = () => {
         component="img"
         alt="back"
         src={redirectPng}
-        sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
-      />
+        sx={{position: "absolute", float: "left", width: "45px", height: "38", cursor: "pointer"}}
+      >
+        <Link to="/creatives/add-creative" />
+      </Box>
       <Box
         className="justifyCenter"
         sx={{ flexDirection: { md: "row", xs: "column" } }}

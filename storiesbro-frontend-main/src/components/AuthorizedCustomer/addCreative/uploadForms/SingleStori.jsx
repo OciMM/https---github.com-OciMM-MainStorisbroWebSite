@@ -6,6 +6,7 @@ import MyButton from "../../../UI/buttons/MyButton";
 import MyModal from "../../../UI/modals/MyModal";
 import { addSingleCreative } from "../../../../api/creatives";
 import SuccessAddCreative from "../../../AuthorizedAdmin/creatives/creativesAfterEnter/table/modals/SuccessAddCreative";
+import { Link } from "react-router-dom";
 
 import redirectPng from "../images/redirect.png"
  
@@ -42,8 +43,10 @@ const SingleStori = (e) => {
         component="img"
         alt="back"
         src={redirectPng}
-        sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
-      />
+        sx={{position: "absolute", float: "left", width: "45px", height: "38", cursor: "pointer"}}
+      >
+        <Link to="/creatives/add-creative" />
+      </Box>
       <SuccessAddCreative
         open={addSuccess}
         setOpen={setAddSuccess}>

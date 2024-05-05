@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import MyInput from "../../../UI/input/MyInput";
 import MyButton from "../../../UI/buttons/MyButton";
+import { Link } from "react-router-dom";
 
 import { addRepost } from "../../../../api/creatives";
 
@@ -18,13 +19,16 @@ const Repost = () => {
   };
 
   return (
-    <Box className="grid columnCenter">
+    <Box>
       <Box
         component="img"
         alt="back"
         src={redirectPng}
-        sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
-      />
+        sx={{position: "absolute", float: "left", width: "45px", height: "38", cursor: "pointer"}}
+      >
+        <Link to="/creatives/add-creative" />
+      </Box>
+    <Box className="grid columnCenter">
       <Typography className="title">Ссылка стикер</Typography>
       <Box sx={{ width: { md: "30%", xs: "100%" } }}>
         <MyInput
@@ -37,6 +41,7 @@ const Repost = () => {
           <MyButton onClick={handleClickCreative} options={{ background: "#4CD640" }}>Загрузить</MyButton>
         </Box>
       </Box>
+    </Box>
     </Box>
   );
 };
