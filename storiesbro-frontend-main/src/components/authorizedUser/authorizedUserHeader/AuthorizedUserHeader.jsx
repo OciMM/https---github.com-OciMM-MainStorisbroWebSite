@@ -74,7 +74,7 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
           alignItems: "center",
         }}
       >
-        <Switcher ismainpage={ismainpage} activeSwitcher={true} />
+        <Switcher ismainpage={ismainpage} />
       </Grid>
 
       <Grid

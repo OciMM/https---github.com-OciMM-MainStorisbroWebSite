@@ -60,6 +60,8 @@ const LoginFormInfo = ({
         dispatch(setTokken(response.data["access"]));
         
         const checkStatus = localStorage.getItem("statusAccount");
+        localStorage.setItem('activeSwitcher', true);
+        
           if (checkStatus == "admin") {
             navigate('/admin');
           } if (checkStatus == "customer") {
