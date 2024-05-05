@@ -24,10 +24,13 @@ const Switcher = ({ ismainpage }) => {
       };
     };
 
-    if(localStorage.getItem('statusAccount') == 'admin'){
-      navigate('/admin');
-    } if(localStorage.getItem('statusAccount') == 'customer'){
-      navigate('/customer');
+    // переключатель
+    if(localStorage.getItem('token')) {
+      if(localStorage.getItem('statusAccount') == 'admin'){
+        navigate('/admin');
+      } if(localStorage.getItem('statusAccount') == 'customer'){
+        navigate('/customer');
+      };
     };
   };
   
