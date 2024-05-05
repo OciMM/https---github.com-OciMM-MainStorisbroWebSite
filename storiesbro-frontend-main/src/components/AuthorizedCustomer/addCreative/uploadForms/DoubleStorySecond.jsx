@@ -12,6 +12,8 @@ import MyDropZone from "../../../UI/myDropZone/MyDropZone";
 import MyInput from "../../../UI/input/MyInput";
 import MyButton from "../../../UI/buttons/MyButton";
 
+import redirectPng from "../images/redirect.png"
+
 import { addDoubleCreative } from "../../../../api/creatives";
 
 const DoubleStoriSecond = ({ onValuesChange }) => {
@@ -38,6 +40,12 @@ const DoubleStoriSecond = ({ onValuesChange }) => {
 
   return (
     <Box>
+      <Box
+        component="img"
+        alt="back"
+        src={redirectPng}
+        sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
+      />
       <Box
         className="justifyCenter"
         sx={{ flexDirection: { md: "row", xs: "column" } }}

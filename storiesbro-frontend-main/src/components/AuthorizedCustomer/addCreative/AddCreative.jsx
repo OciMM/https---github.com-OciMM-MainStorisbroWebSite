@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Tooltips } from "../../Onboardings/Tooltips";
-import redirectPng from "./images/redirect.png"
+import redirectPng from "./images/redirect.png";
 
 const AddCreative = () => {
   const count_of_visit = localStorage.getItem['count_of_visit']

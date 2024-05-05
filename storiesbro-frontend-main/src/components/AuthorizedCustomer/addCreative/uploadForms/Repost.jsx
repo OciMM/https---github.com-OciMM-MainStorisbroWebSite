@@ -5,6 +5,8 @@ import MyButton from "../../../UI/buttons/MyButton";
 
 import { addRepost } from "../../../../api/creatives";
 
+import redirectPng from "../images/redirect.png"
+
 const Repost = () => {
   const [link, setLink] = useState("");
   const [title, setTitle] = useState("");
@@ -17,6 +19,12 @@ const Repost = () => {
 
   return (
     <Box className="grid columnCenter">
+      <Box
+        component="img"
+        alt="back"
+        src={redirectPng}
+        sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
+      />
       <Typography className="title">Ссылка стикер</Typography>
       <Box sx={{ width: { md: "30%", xs: "100%" } }}>
         <MyInput

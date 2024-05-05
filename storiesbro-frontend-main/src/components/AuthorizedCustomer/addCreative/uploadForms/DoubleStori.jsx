@@ -13,7 +13,7 @@ import MyInput from "../../../UI/input/MyInput";
 import MyButton from "../../../UI/buttons/MyButton";
 
 import { addDoubleCreative } from "../../../../api/creatives";
-
+import redirectPng from "../images/redirect.png"
 
 const DoubleStori = () => {
   const navigate = useNavigate();
@@ -53,6 +53,12 @@ const DoubleStori = () => {
 
   return (
     <Box>
+      <Box
+        component="img"
+        alt="back"
+        src={redirectPng}
+        sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
+      />
       <Box
         className="justifyCenter"
         sx={{ flexDirection: { md: "row", xs: "column" } }}

@@ -7,6 +7,7 @@ import MyModal from "../../../UI/modals/MyModal";
 import { addSingleCreative } from "../../../../api/creatives";
 import SuccessAddCreative from "../../../AuthorizedAdmin/creatives/creativesAfterEnter/table/modals/SuccessAddCreative";
 
+import redirectPng from "../images/redirect.png"
  
 const SingleStori = (e) => {
   const [linkValue, setLinkValue] = React.useState("");
@@ -37,6 +38,12 @@ const SingleStori = (e) => {
 
   return (
     <Box>
+      <Box
+        component="img"
+        alt="back"
+        src={redirectPng}
+        sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
+      />
       <SuccessAddCreative
         open={addSuccess}
         setOpen={setAddSuccess}>
