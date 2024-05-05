@@ -20,7 +20,7 @@ const AddCreative = () => {
         component="img"
         alt="back"
         src={redirectPng}
-        sx={{position: "absolute", float: "left"}}
+        sx={{position: "absolute", float: "left", width: "45px", height: "38"}}
       />
       {count === 1 && (
          <>
