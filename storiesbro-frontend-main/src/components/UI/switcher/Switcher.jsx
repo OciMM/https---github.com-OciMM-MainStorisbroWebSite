@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Switcher = ({ ismainpage }) => {
   const [isCustomer, setIsCustomer] = useContext(Context);
+  const [isAuthCustomer, setIsAuthCustomer] = useState();
   
   const refresh = localStorage.getItem('refresh')
   const token = localStorage.getItem('token')
@@ -14,7 +15,11 @@ const Switcher = ({ ismainpage }) => {
   
 
   const handleSwitch = () =>{
-    setIsCustomer(!isCustomer)
+    if(!localStorage.getItem('token')) {
+      setIsCustomer(!isCustomer);
+    } if(localStorage.getItem('token')) {
+      setIsAuthCustomer(!isAuthCustomer);
+    }
     
     if (refresh && token && id) {
       if (statusAccount == 'customer') {
@@ -23,22 +28,13 @@ const Switcher = ({ ismainpage }) => {
         navigate('/admin');
       };
     };
-
   };
   
-  if (isCustomer) {
+  if (isCustomer || isAuthCustomer) {
     localStorage.setItem("statusAccount", "customer")
-  } if(!isCustomer) {
+  } if(!isCustomer || !isAuthCustomer) {
     localStorage.setItem("statusAccount", "admin")
   };
-
-  // фикс проблемы с переключателем
-  if(localStorage.getItem('activeSwitcher') == true) {
-    handleSwitch();
-    localStorage.removeItem('activeSwitcher');
-  };
-
-  
   
 
   return (
@@ -60,10 +56,19 @@ const Switcher = ({ ismainpage }) => {
       >
         Заказчикам
       </Typography>
-      <Switch
-        checked={!isCustomer}
-        onClick={handleSwitch}
-      />
+      {!localStorage.getItem('token') &&
+        <Switch
+          checked={!isCustomer}
+          onClick={handleSwitch}
+        />
+      }
+
+      {localStorage.getItem('token') &&
+        <Switch
+          checked={!isAuthCustomer}
+          onClick={handleSwitch}
+        />
+      }
       <Typography
         sx={{
           fontSize: { sm: "22px", xs: "15px" },
