@@ -14,7 +14,7 @@ const Switcher = ({ ismainpage }) => {
   
 
   const handleSwitch = () =>{
-    setIsCustomer(!isCustomer)
+    setIsCustomer(isCustomer)
 
     // переключатель
     if(localStorage.getItem('token')) {
