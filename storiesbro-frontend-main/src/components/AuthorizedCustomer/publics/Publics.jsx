@@ -53,13 +53,22 @@ const Publics = () => {
               </Typography>
               <Box className="grayBorder alignCenter" sx={{ minWidth: 160 }}>
               <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Подписчики</InputLabel>
+                {/* <InputLabel id="demo-simple-select-label">Подписчики</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   label="subs"
                 >
                   <MenuItem>По возрастанию</MenuItem>
+                  <MenuItem>По убыванию</MenuItem>
+                </Select> */}
+                <Select
+                  displayEmpty
+                  inputProps={{ 'aria-label': 'Without label' }}
+                >
+                  <MenuItem value="">
+                    По возрастанию
+                  </MenuItem>
                   <MenuItem>По убыванию</MenuItem>
                 </Select>
               </FormControl>
