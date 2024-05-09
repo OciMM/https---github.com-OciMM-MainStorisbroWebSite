@@ -66,10 +66,8 @@ const Publics = () => {
                   displayEmpty
                   inputProps={{ 'aria-label': 'Without label' }}
                 >
-                  <MenuItem value="">
-                    По возрастанию
-                  </MenuItem>
-                  <MenuItem>По убыванию</MenuItem>
+                  <MenuItem>По возрастанию</MenuItem>
+                  <MenuItem value="">По убыванию</MenuItem>
                 </Select>
               </FormControl>
               </Box>
