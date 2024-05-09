@@ -37,6 +37,54 @@ const RightSideBar = ({ open, setOpen }) => {
         />
         <NavLink
           className="navLink menuItem"
+          to="/profile"
+          onClick={() => setOpen(false)}
+        >
+          <PersonIcon className="menuIcon" sx={{ mr: 1 }} />
+          Данные пользователя
+        </NavLink>
+        <Divider />
+        <NavLink
+          className="navLink menuItem"
+          to="/cash"
+          onClick={() => setOpen(false)}
+        >
+          <PaymentsIcon className="menuIcon" sx={{ mr: 1 }} />
+          Пополнение/вывод
+        </NavLink>
+        <Divider />
+
+        <NavLink
+          className="navLink menuItem"
+          to="/password"
+          onClick={() => setOpen(false)}
+        >
+          <LockIcon className="menuIcon" sx={{ mr: 1 }} />
+          Измененеие пароля
+        </NavLink>
+        <Divider />
+
+        <NavLink
+          className="navLink menuItem"
+          to="/alerts"
+          onClick={() => setOpen(false)}
+        >
+          <SettingsIcon className="menuIcon" sx={{ mr: 1 }} />
+          Настройка уведомлений
+        </NavLink>
+        <Divider />
+
+        <NavLink
+          className="navLink menuItem"
+          to="/history"
+          onClick={() => setOpen(false)}
+        >
+          <NotificationsIcon className="menuIcon" sx={{ mr: 1 }} />
+          История уведомлений
+        </NavLink>
+        <Divider />
+        <NavLink
+          className="navLink menuItem"
           to="/"
           onClick={handleExit}
         >
