@@ -152,7 +152,7 @@ const AuthorizedCustomerLeftSidebar = ({ open, setOpen }) => {
               className="menuItem"
               onClick={() => setOpen(false)}
             >
-              Мои сообщества
+              Тех. поддержка
             </NavLink>
           </Box>
         </Box>
