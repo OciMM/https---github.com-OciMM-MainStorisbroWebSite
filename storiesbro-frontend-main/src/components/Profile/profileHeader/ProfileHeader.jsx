@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 
 import logo from "../../../images/icons/commonIcons/logo.svg";
 import humanProfile from "../../../images/icons/humanProfile.svg";
@@ -56,7 +57,9 @@ const ProfileHeader = () => {
             <MyButton
               options={{ background: "#E68B46", color: "white", mr: 1 }}
             >
-              Пополнить
+            <Link to="/cash" style={{ textDecoration: "none" }}>
+              <Typography sx={{ color: "white" }}>Пополнить</Typography>
+            </Link>
             </MyButton>
           </Box>
           <Box sx={{ display: { lg: "block", xs: "none" } }}>0р</Box>
