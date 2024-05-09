@@ -29,6 +29,7 @@ const ProfileDataModal = ({
       setModalOpen(false);
     } catch (error) {
       console.error('Ошибка', error);
+      setError(true);
     }
   };
 
