@@ -6,14 +6,19 @@ const AuthorizedAdminCarusel = ({ image }) => {
 
   return (
     <Carousel cellPadding={105}>
-      <img className="caruselItem" src={image} alt="img" />
-      <img className="caruselItem" src={image} alt="img" />
-      <img className="caruselItem" src={image} alt="img" />
-      <img className="caruselItem" src={image} alt="img" />
-      <img className="caruselItem" src={image} alt="img" />
-      <img className="caruselItem" src={image} alt="img" />
-      <img className="caruselItem" src={image} alt="img" />
-      <img className="caruselItem" src={image} alt="img" />
+      <video className="carouselItem" controls>
+        <source src={image} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video className="carouselItem" controls>
+        <source src={image} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video className="carouselItem" controls>
+        <source src={image} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      {/* Add more <video> elements for each video */}
     </Carousel>
   );
 };
