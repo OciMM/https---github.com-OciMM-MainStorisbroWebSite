@@ -38,29 +38,43 @@ const RegistrationForm = ({
   };
   const [userId, setUserId] = useState(null);
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
+  const checkSymbolsPassword = (passwordCheck) => {
+    const pattern = /^[a-zA-Z!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+    return pattern.test(passwordCheck);
+  };
+
   const handleRegister = () => {
     if(password.length < 6) {
+      setErrorMessage("*В пароле должно быть минимум 6 символов")
       setError(true);
       setIsEmailConfirm(false);
       setIsRegistrationForm(true);
     }
     if(password.length >= 6) {
-      setIsRegistrationForm(false);
-      axios.post(REGISTER_LINK, { email: email, password: password })
-      .then(response => {
-        setUserId(response.data.id);
-        console.log(response.data.id)  // Получение id пользователя и сохранение его в состоянии
-        console.log(userId)
-        setIsEmailConfirm(true);
-      })
-      .catch(error => {
-        console.error("Ошибка регистрации:", error);
-      });
+      if(checkSymbolsPassword(password) == false) {
+        setErrorMessage("*В пароле должно быть только латинские и специальные символы")
+        setError(true);
+        setIsEmailConfirm(false);
+        setIsRegistrationForm(true);
+      }else {
+        setIsRegistrationForm(false);
+        axios.post(REGISTER_LINK, { email: email, password: password })
+        .then(response => {
+          setUserId(response.data.id);
+          console.log(response.data.id)  // Получение id пользователя и сохранение его в состоянии
+          console.log(userId)
+          setIsEmailConfirm(true);
+        })
+        .catch(error => {
+          console.error("Ошибка регистрации:", error);
+        });
+      };
     }
   };
 
@@ -98,7 +112,7 @@ const RegistrationForm = ({
         />
         <ErrorMessage
         error={error}
-        errorMessage="*В пароле должно быть минимум 6 символов"
+        errorMessage={errorMessage}
         />
         <FormControlLabel
           control={<Checkbox />}
