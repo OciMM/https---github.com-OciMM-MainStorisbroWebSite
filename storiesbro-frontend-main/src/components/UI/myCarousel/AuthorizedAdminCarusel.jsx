@@ -6,7 +6,7 @@ const AuthorizedAdminCarusel = ({ image }) => {
 
   return (
     <Carousel cellPadding={105}>
-      <video width="258px" height="461" className="carouselItem" controls>
+      <video width="258px" height="461px" className="carouselItem" controls>
         <source src={image} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
