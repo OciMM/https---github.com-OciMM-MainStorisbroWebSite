@@ -5,17 +5,19 @@ import copy from "./images/copy.svg";
 import people from "./images/people.svg";
 import money from "./images/money.svg";
 import scrooge from "./images/scrooge.svg";
+import check from "./images/check.svg";
 import assept from "./images/assept.svg";
-import assept_img from "./images/assept_img.png"
+import assept_img from "./images/assept_img.png";
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
-import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
 
 const ReferalForm = () => {
   const [link, setLink] = useState("Storisbro.com/?_ref=2Rh46f3L");
   const [icon, setIcon] = useState(copy);
 
   const handleChangeIcon = () => {
-    setIcon();
+    setIcon(check);
     setTimeout(() => {
       setIcon(copy);
     }, 2000);
