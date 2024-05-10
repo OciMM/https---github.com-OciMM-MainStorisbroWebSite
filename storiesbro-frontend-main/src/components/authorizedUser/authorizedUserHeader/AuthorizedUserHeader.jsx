@@ -19,19 +19,38 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
   const navigate = useNavigate();
   return (
     <Grid container sx={{ alignItems: "center" }}>
-      <Grid
-        component="img"
-        alt="logo"
-        src={logo}
-        order={{ lg: 2, xs: 3 }}
-        item
-        lg={2}
-        xs={8}
-        sx={{
-          height: { xs: "50px", sm: "95px" },
-          width: { xs: "30px", sm: "60px" },
-        }}
-      />
+      {localStorage.getItem('statusAccount') == 'customer' && 
+        <Grid
+          component="img"
+          alt="logo"
+          src={logo}
+          order={{ lg: 2, xs: 3 }}
+          item
+          lg={2}
+          xs={8}
+          sx={{
+            height: { xs: "50px", sm: "95px" },
+            width: { xs: "30px", sm: "60px" },
+          }}
+          onClick={() => navigate("/customer-help")}
+        />
+      }
+      {localStorage.getItem('statusAccount') == 'admin' && 
+        <Grid
+          component="img"
+          alt="logo"
+          src={logo}
+          order={{ lg: 2, xs: 3 }}
+          item
+          lg={2}
+          xs={8}
+          sx={{
+            height: { xs: "50px", sm: "95px" },
+            width: { xs: "30px", sm: "60px" },
+          }}
+          onClick={() => navigate("/admin-help")}
+        />
+      }
       <AdminLeftSideBar
         open={!isCustomer && leftSidebarOpen}
         setOpen={setLeftSidebarOpen}

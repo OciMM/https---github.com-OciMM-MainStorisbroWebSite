@@ -33,7 +33,6 @@ const Header = ({ setIsLoginFormOpen, ismainpage }) => {
           width: { xs: "30px", sm: "60px" },
         }}
         order={{ xs: 2, sm: 1 }}
-        onClick={() => navigate("/customer-help")}
       />
       <Grid
         item
