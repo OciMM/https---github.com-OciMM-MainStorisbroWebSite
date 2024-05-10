@@ -55,7 +55,6 @@ const RegistrationForm = ({
       setError(true);
       setIsEmailConfirm(false);
       setIsRegistrationForm(true);
-      setIsChecked(false);
     }
     if(password.length >= 6) {
       if(checkSymbolsPassword(password) == false) {
@@ -63,7 +62,6 @@ const RegistrationForm = ({
         setError(true);
         setIsEmailConfirm(false);
         setIsRegistrationForm(true);
-        setIsChecked(false);
       }else {
         setIsRegistrationForm(false);
         axios.post(REGISTER_LINK, { email: email, password: password })
