@@ -28,7 +28,7 @@ const RegistrationForm = ({
   handleConfirmForm
 }) => {
   const handleConfirmEmail = () => {
-    setIsEmailConfirm(false);
+    setIsEmailConfirm(true);
     // setIsChecked(false);
   };
 
