@@ -3,6 +3,9 @@ import { Box, Typography } from "@mui/material";
 
 import vca from "./images/vca.png";
 import AuthorizedAdminCarusel from "../../UI/myCarousel/AuthorizedAdminCarusel";
+import firstVideo from "./images/IMG_8429.mp4";
+import secondVideo from "./images/IMG_8428.mp4";
+import thirdVideo from "./images/IMG_8427.mp4";
 
 const Vca = () => {
   return (
@@ -17,7 +20,7 @@ const Vca = () => {
       <Typography className="title" sx={{ mt: 4 }}>
         Примеры стандартных ВЦА
       </Typography>
-      <AuthorizedAdminCarusel image={vca} />
+      <AuthorizedAdminCarusel firstVideo={firstVideo} secondVideo={secondVideo} thirdVideo={thirdVideo} />
     </Box>
   );
 };

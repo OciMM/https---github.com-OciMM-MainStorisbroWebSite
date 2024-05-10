@@ -2,7 +2,9 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 
 import mca from "./images/mca.png";
-import firstVideo from "./images/IMG_8419.mp4"
+import firstVideo from "./images/IMG_8419.mp4";
+import secondVideo from "./images/IMG_8420.mp4";
+import thirdVideo from "./images/IMG_8417.mp4"
 import AuthorizedAdminCarusel from "../../UI/myCarousel/AuthorizedAdminCarusel";
 
 const Mca = () => {
@@ -17,7 +19,7 @@ const Mca = () => {
       <Typography className="title" sx={{ mt: 4 }}>
         Примеры стандартных МЦА
       </Typography>
-      <AuthorizedAdminCarusel image={firstVideo} />
+      <AuthorizedAdminCarusel firstVideo={firstVideo} secondVideo={secondVideo} thirdVideo={thirdVideo} />
     </Box>
   );
 };
