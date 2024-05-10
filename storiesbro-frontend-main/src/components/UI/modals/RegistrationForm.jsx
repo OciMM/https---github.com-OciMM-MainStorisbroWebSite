@@ -29,7 +29,7 @@ const RegistrationForm = ({
 }) => {
   const handleConfirmEmail = () => {
     setIsEmailConfirm(false);
-    setIsChecked(false);
+    // setIsChecked(false);
   };
 
   const handleCloseRegistration = () => {
@@ -58,7 +58,7 @@ const RegistrationForm = ({
     }
     if(password.length >= 6) {
       if(checkSymbolsPassword(password) == false) {
-        setErrorMessage("*В пароле должно быть только латинские и специальные символы")
+        setErrorMessage("*В пароле должны быть только латинские и специальные символы")
         setError(true);
         setIsEmailConfirm(false);
         setIsRegistrationForm(true);
