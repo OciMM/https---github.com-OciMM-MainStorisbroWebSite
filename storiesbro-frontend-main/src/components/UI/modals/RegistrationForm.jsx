@@ -61,7 +61,11 @@ const RegistrationForm = ({
       setError(true);
       setIsEmailConfirm(false);
       setIsRegistrationForm(true);
-      localStorage.setItem("lastError", true)
+      if(!localStorage.getItem("lastError")){
+        localStorage.setItem("lastError", true)
+      } if(localStorage.getItem("lastError")){
+        localStorage.removeItem("lastError")
+      };
     }
     if(password.length >= 6) {
       if(checkSymbolsPassword(password) == false) {
@@ -69,7 +73,11 @@ const RegistrationForm = ({
         setError(true);
         setIsEmailConfirm(false);
         setIsRegistrationForm(true);
-        localStorage.setItem("lastError", true)
+        if(!localStorage.getItem("lastError")){
+          localStorage.setItem("lastError", true)
+        } if(localStorage.getItem("lastError")){
+          localStorage.removeItem("lastError")
+        };
       }else {
         setIsRegistrationForm(false);
         axios.post(REGISTER_LINK, { email: email, password: password })
