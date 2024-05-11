@@ -29,13 +29,19 @@ const RegistrationForm = ({
 }) => {
   const handleConfirmEmail = () => {
     setIsEmailConfirm(false);
-    // setIsChecked(false);
+    setIsChecked(false);
   };
 
   const handleCloseRegistration = () => {
     setIsRegistrationForm(false);
-    // setIsChecked(false);
+    setIsChecked(false);
   };
+
+  const changeChecked = () => {
+    setIsChecked(!isChecked);
+    console.log(isChecked);
+  };
+
   const [userId, setUserId] = useState(null);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -122,7 +128,7 @@ const RegistrationForm = ({
               <Link>политикой конфиденциальности</Link>
             </Typography>
           }
-          onChange={() => setIsChecked(!isChecked)}
+          onChange={changeChecked}
         />
         <Box
           onClick={() => handleConfirmEmail()}
