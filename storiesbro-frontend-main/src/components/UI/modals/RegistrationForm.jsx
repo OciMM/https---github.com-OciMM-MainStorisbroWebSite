@@ -61,7 +61,7 @@ const RegistrationForm = ({
       setError(true);
       setIsEmailConfirm(false);
       setIsRegistrationForm(true);
-      setIsChecked(false);
+      localStorage.setItem("lastError", true)
     }
     if(password.length >= 6) {
       if(checkSymbolsPassword(password) == false) {
@@ -69,7 +69,7 @@ const RegistrationForm = ({
         setError(true);
         setIsEmailConfirm(false);
         setIsRegistrationForm(true);
-        setIsChecked(false);
+        localStorage.setItem("lastError", true)
       }else {
         setIsRegistrationForm(false);
         axios.post(REGISTER_LINK, { email: email, password: password })
@@ -78,6 +78,7 @@ const RegistrationForm = ({
           console.log(response.data.id)  // Получение id пользователя и сохранение его в состоянии
           console.log(userId)
           setIsEmailConfirm(true);
+          localStorage.removeItem("lastError")
         })
         .catch(error => {
           console.error("Ошибка регистрации:", error);
@@ -122,6 +123,18 @@ const RegistrationForm = ({
         error={error}
         errorMessage={errorMessage}
         />
+        {localStorage.getItem("lastError") && 
+          <FormControlLabel
+          control={<Checkbox checked={false} />}
+          label={
+            <Typography>
+              Согласны с <Link>правилами пользования</Link> и{" "}
+              <Link>политикой конфиденциальности</Link>
+            </Typography>
+          }
+          onChange={changeChecked}
+        />
+        }
         <FormControlLabel
           control={<Checkbox />}
           label={
