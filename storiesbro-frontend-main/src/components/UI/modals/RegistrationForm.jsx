@@ -29,12 +29,12 @@ const RegistrationForm = ({
 }) => {
   const handleConfirmEmail = () => {
     setIsEmailConfirm(false);
-    setIsChecked(false);
+    // setIsChecked(false);
   };
 
   const handleCloseRegistration = () => {
     setIsRegistrationForm(false);
-    setIsChecked(false);
+    // setIsChecked(false);
   };
   const [userId, setUserId] = useState(null);
   const [error, setError] = useState(false);
