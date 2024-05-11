@@ -125,17 +125,6 @@ const RegistrationForm = ({
         />
         {localStorage.getItem("lastError") && 
           <FormControlLabel
-          control={<Checkbox checked={false} />}
-          label={
-            <Typography>
-              Согласны с <Link>правилами пользования</Link> и{" "}
-              <Link>политикой конфиденциальности</Link>
-            </Typography>
-          }
-          onChange={changeChecked}
-        />
-        }
-        <FormControlLabel
           control={<Checkbox />}
           label={
             <Typography>
@@ -145,6 +134,19 @@ const RegistrationForm = ({
           }
           onChange={changeChecked}
         />
+        }
+        {!localStorage.getItem("lastError") &&
+          <FormControlLabel
+          control={<Checkbox />}
+          label={
+            <Typography>
+              Согласны с <Link>правилами пользования</Link> и{" "}
+              <Link>политикой конфиденциальности</Link>
+            </Typography>
+          }
+          onChange={changeChecked}
+        />
+        }
         <Box
           onClick={() => handleConfirmEmail()}
           sx={{ width: "300px", m: "20px auto" }}
