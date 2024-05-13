@@ -4,14 +4,18 @@ import { Box, Typography } from "@mui/material";
 import MyInput from "../../../UI/input/MyInput";
 import MyButton from "../../../UI/buttons/MyButton";
 import ErrorMessage from "../../../UI/errors/ErrorMessage";
+import { Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import { API_URL } from "../../../../constants/constatns";
 
+
 const SuccessChangePassword = ({ open, setOpen }) => {
 
+  const navigate = useNavigate();
   const handleClick = async() => {
     setOpen(false);
+    navigate("/password")
   };
 
   return (
