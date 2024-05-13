@@ -31,6 +31,7 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
           sx={{
             height: { xs: "50px", sm: "95px" },
             width: { xs: "30px", sm: "60px" },
+            cursor: "pointer"
           }}
           onClick={() => navigate("/customer-help")}
         />
@@ -47,6 +48,7 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
           sx={{
             height: { xs: "50px", sm: "95px" },
             width: { xs: "30px", sm: "60px" },
+            cursor: "pointer"
           }}
           onClick={() => navigate("/admin-help")}
         />
