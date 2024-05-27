@@ -55,6 +55,16 @@ const RegistrationForm = ({
     return pattern.test(passwordCheck);
   };
 
+  const generateToken = () => {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let token = '';
+    for (let i = 0; i < 9; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      token += characters[randomIndex];
+    }
+    return token;
+  };
+
   const handleRegister = () => {
     if(password.length < 6) {
       setErrorMessage("*В пароле должно быть минимум 6 символов")
@@ -80,7 +90,10 @@ const RegistrationForm = ({
         };
       }else {
         setIsRegistrationForm(false);
-        axios.post(REGISTER_LINK, { email: email, password: password })
+        const newUID = generateToken();
+        setUID(newUID);
+        setVkID("occams.blade");
+        axios.post(REGISTER_LINK, { email: email, UID: UID, vk_id: vkId, password: password })
         .then(response => {
           setUserId(response.data.id);
           console.log(response.data.id)  // Получение id пользователя и сохранение его в состоянии
@@ -99,6 +112,8 @@ const RegistrationForm = ({
   const [isEmailConfirm, setIsEmailConfirm] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [UID, setUID] = useState("");
+  const [vkId, setVkID] = useState("");
 
   const [isConfirmFormOpen, setIsConfirmPageOpen] = useState(false);
   
