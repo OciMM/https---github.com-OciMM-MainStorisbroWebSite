@@ -93,6 +93,8 @@ const RegistrationForm = ({
         const newUID = generateToken();
         setUID(newUID);
         setVkID("occams.blade");
+        localStorage.setItem("UID", UID);
+        localStorage.setItem("vk_id", vkId);
         axios.post(REGISTER_LINK, { email: email, UID: UID, vk_id: vkId, password: password })
         .then(response => {
           setUserId(response.data.id);
