@@ -57,6 +57,8 @@ const LoginFormInfo = ({
         localStorage.setItem("refresh", response.data["refresh"])
         localStorage.setItem("id", response.data["id"])
         localStorage.setItem("count_of_visit", response.data["count_of_visit"] + 1)
+        localStorage.setItem("UID", response.data["UID"])
+        localStorage.setItem("vk_id", response.data["vk_id"])
         dispatch(setTokken(response.data["access"]));
         
         const checkStatus = localStorage.getItem("statusAccount");
