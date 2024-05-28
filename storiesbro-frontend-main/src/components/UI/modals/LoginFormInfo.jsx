@@ -62,6 +62,7 @@ const LoginFormInfo = ({
         dispatch(setTokken(response.data["access"]));
         
         const checkStatus = localStorage.getItem("statusAccount");
+        console.log(response.data);
 
           if (checkStatus == "admin") {
             navigate('/admin');
