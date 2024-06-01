@@ -14,7 +14,7 @@ const ProfileHistory = () => {
     // Функция для получения сообществ с бэкенда
     const fetchPublics = async () => {
       try {
-        const response = await axios.get(`${API_URL}notification/send-notification/message/${localStorage.getItem('UID')}/`);
+        const response = await axios.get(`${API_URL}notification/send-notification/message/${localStorage.getItem('id')}/`);
         // setListNotification(response.data);
         console.log(response.data)
       } catch (error) {
