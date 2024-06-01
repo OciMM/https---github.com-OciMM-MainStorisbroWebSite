@@ -15,7 +15,7 @@ const ProfileHistory = () => {
     const fetchPublics = async () => {
       try {
         const response = await axios.get(`${API_URL}notification/send-notification/message/${localStorage.getItem('UID')}/`);
-        setListNotification(response.data);
+        // setListNotification(response.data);
         console.log(response.data)
       } catch (error) {
         console.error('Ошибка при загрузке уведомлений', error);
