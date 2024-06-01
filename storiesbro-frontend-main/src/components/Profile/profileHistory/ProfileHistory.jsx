@@ -15,7 +15,7 @@ const ProfileHistory = () => {
     const fetchPublics = async () => {
       try {
         const response = await axios.get(`${API_URL}notification/send-notification/message/${localStorage.getItem('UID')}/`);
-        // setListNotification(response.data);
+        setListNotification(response.data);
         console.log(response)
       } catch (error) {
         console.error('Ошибка при загрузке уведомлений', error);
@@ -26,24 +26,24 @@ const ProfileHistory = () => {
     fetchPublics();
   }, [localStorage.getItem('UID')]);
   
-  const alerts = [
-    {
-      id: 1,
-      isConfirmed: true,
-      type: "Модерация креатива",
-      date: "18:14",
-      content: "Ваш креатив “Пранк-бот” одобрен. Желаем хороших закупов;)",
-    },
-    {
-      id: 2,
-      isConfirmed: false,
-      type: "Модерация креатива",
-      date: "02.08.2023",
-      content:
-        "Ваш креатив “Пранк-бот” не прошёл проверку. Ознакомьтесь с комментарием и ждём его на проверке снова;)",
-      comment: "Исправьте эротический контекст и загрузите креатив снова.",
-    },
-  ];
+  // const alerts = [
+  //   {
+  //     id: 1,
+  //     isConfirmed: true,
+  //     type: "Модерация креатива",
+  //     date: "18:14",
+  //     content: "Ваш креатив “Пранк-бот” одобрен. Желаем хороших закупов;)",
+  //   },
+  //   {
+  //     id: 2,
+  //     isConfirmed: false,
+  //     type: "Модерация креатива",
+  //     date: "02.08.2023",
+  //     content:
+  //       "Ваш креатив “Пранк-бот” не прошёл проверку. Ознакомьтесь с комментарием и ждём его на проверке снова;)",
+  //     comment: "Исправьте эротический контекст и загрузите креатив снова.",
+  //   },
+  // ];
 
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [buttonId, setButton] = useState(-1);
@@ -56,15 +56,15 @@ const ProfileHistory = () => {
 
   return (
     <Box sx={{ width: "80%", m: { xs: "0 auto", lg: 0 } }}>
-      {alerts.map((alert) => (
-        <Box key={alert["id"]}>
-          <Comment
-            id={alert["id"]}
+      {setListNotification.map((listNotification) => (
+        <Box key={listNotification["id"]}>
+          {/* <Comment
+            id={listNotification["id"]}
             buttonId={buttonId}
-            comment={alert["comment"]}
+            comment={alert["message"]}
             isFormOpen={isFormOpen}
             setIsFormOpen={() => setIsFormOpen(false)}
-          />
+          /> */}
 
           <Box
             sx={{
@@ -76,18 +76,18 @@ const ProfileHistory = () => {
               p: 1,
             }}
           >
-            <Box
+            {/* <Box
               component="img"
               alt="confirm"
               src={alert["isConfirmed"] ? check : cross}
               sx={{ mt: 0.5, mr: 1 }}
-            />
+            /> */}
 
             <Box sx={{ position: "relative", width: "100%" }}>
               <Typography
                 sx={{ fontSize: { md: "18px", xs: "14px" }, fontWeight: 500 }}
               >
-                {alert["type"]}
+                {listNotification["title"]}
               </Typography>
               <Typography
                 sx={{
@@ -98,15 +98,15 @@ const ProfileHistory = () => {
                   right: 0,
                 }}
               >
-                {alert["date"]}
+                {listNotification["created"]}
               </Typography>
               <Typography
                 sx={{ fontSize: { md: "14px", xs: "12px" }, fontWeight: 400 }}
               >
-                {alert["content"]}
+                {listNotification["message"]}
               </Typography>
 
-              {alert["comment"] && (
+              {/* {alert["comment"] && (
                 <Box sx={{ mt: 2, width: { md: "25%", sm: "50%", xs: "80%" } }}>
                   <MyButton
                     onClick={() => handleClick(alert["id"])}
@@ -115,7 +115,7 @@ const ProfileHistory = () => {
                     Комментарий
                   </MyButton>
                 </Box>
-              )}
+              )} */}
             </Box>
           </Box>
         </Box>
