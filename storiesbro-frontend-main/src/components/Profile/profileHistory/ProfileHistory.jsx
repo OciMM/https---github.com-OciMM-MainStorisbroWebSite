@@ -56,7 +56,7 @@ const ProfileHistory = () => {
 
   return (
     <Box sx={{ width: "80%", m: { xs: "0 auto", lg: 0 } }}>
-      {setListNotification.map((listNotification) => (
+      {listNotification.map((listNotification) => (
         <Box key={listNotification["id"]}>
           {/* <Comment
             id={listNotification["id"]}
