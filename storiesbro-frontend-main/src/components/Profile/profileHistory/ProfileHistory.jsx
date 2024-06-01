@@ -1,5 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { API_URL } from "../../../constants/constatns";
 
 import check from "../../../images/profileImages/alertsHistoryIcons/check.svg";
 import cross from "../../../images/profileImages/alertsHistoryIcons/cross.svg";
@@ -7,6 +9,23 @@ import MyButton from "../../UI/buttons/MyButton";
 import Comment from "./Comment";
 
 const ProfileHistory = () => {
+
+  useEffect(() => {
+    // Функция для получения сообществ с бэкенда
+    const fetchPublics = async () => {
+      try {
+        const response = await axios.get(`${API_URL}notification/send-notification/message/${localStorage.getItem('UID')}/`);
+        setListNotification(response.data);
+        console.log(response.data)
+      } catch (error) {
+        console.error('Ошибка при загрузке уведомлений', error);
+      }
+    };
+
+    // Вызов функции для загрузки сообществ при монтировании компонента
+    fetchPublics();
+  }, [localStorage.getItem('UID')]);
+  
   const alerts = [
     {
       id: 1,
@@ -28,6 +47,7 @@ const ProfileHistory = () => {
 
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [buttonId, setButton] = useState(-1);
+  const [listNotification, setListNotification] = useState([]);
 
   const handleClick = (id) => {
     setIsFormOpen(true);
