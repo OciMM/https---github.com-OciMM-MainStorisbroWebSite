@@ -54,6 +54,7 @@ const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId, hand
             localStorage.setItem("refresh", response.data["refresh"])
             localStorage.setItem("id", response.data["id"])
             localStorage.setItem("count_of_visit", response.data["count_of_visit"] + 1)
+            localStorage.setItem("UID", response.data["UID"])
             dispatch(setTokken(response.data["access"]));
               
             localStorage.removeItem('statusActivate')
