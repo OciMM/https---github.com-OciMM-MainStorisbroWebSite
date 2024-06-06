@@ -51,7 +51,7 @@ const RegistrationForm = ({
   const navigate = useNavigate();
 
   const checkSymbolsPassword = (passwordCheck) => {
-    const pattern = /^[a-zA-Z!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+    const pattern = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
     return pattern.test(passwordCheck);
   };
 
