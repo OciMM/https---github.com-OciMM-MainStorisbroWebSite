@@ -28,14 +28,15 @@ const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId, hand
   const navigate = useNavigate();
 
   const handleConfirmFormClick = async () => {
-    setIsEmailConfirm(false);
-  
+    
     try {
       console.log("Отправка запроса активации:", `${API_URL}activate/${userId}/${code}/`);
-      const response = await axios.post(`${API_URL}activate/${userId}/${code}/`);
-      localStorage.setItem('statusActivate', true);
-      const email_lower = emailLogin.toLowerCase()
-       await axios
+      try {
+        const response = await axios.post(`${API_URL}activate/${userId}/${code}/`);
+        localStorage.setItem('statusActivate', true);
+        const email_lower = emailLogin.toLowerCase()
+        setIsEmailConfirm(false);
+        await axios
           .post(`${API_URL}login/`, {
             email: email_lower,
             password: passwordLogin,
@@ -68,13 +69,17 @@ const EmailConfirmationForm = ({ isEmailConfirm, setIsEmailConfirm, userId, hand
             .catch(function (error) {
               setError(true); // Устанавливаем флаг ошибки в true при ошибке запроса
             });
-      if (response.data.message) {
-        console.log(response.data.message);
-        // Возможно, вам нужно выполнить какие-то действия после успешной активации
-      } else {
-        console.error(response.data.error);
+            if (response.data.message) {
+              console.log(response.data.message);
+              // Возможно, вам нужно выполнить какие-то действия после успешной активации
+            } else {
+              console.error(response.data.error);
+              setError(true);
+            }
+      } catch {
+        setIsEmailConfirm(true)
         setError(true);
-      }
+      };
     } catch (error) {
       console.error(error);
       setError(true);
