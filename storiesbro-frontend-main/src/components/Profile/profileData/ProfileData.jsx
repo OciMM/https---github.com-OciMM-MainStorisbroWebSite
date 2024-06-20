@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import ProfileName from "./ProfileName";
 import ProfileEmail from "./ProfileEmail";
@@ -34,6 +34,7 @@ const ProfileData = () => {
       <ProfileName />
       <ProfileEmail />
       <ProfileButton />
+      <Typography>{localStorage.getItem('UID')}</Typography>
       <Button
       onClick={handleUpdate}
       sx={{
