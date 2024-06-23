@@ -9,47 +9,27 @@ import MyButton from "../../UI/buttons/MyButton";
 import Comment from "./Comment";
 
 const ProfileHistory = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [buttonId, setButton] = useState(-1);
+  const [listNotification, setListNotification] = useState([]);
 
   useEffect(() => {
-    // Функция для получения сообществ с бэкенда
-    const fetchPublics = async () => {
+    // Функция для получения уведомлений с бэкенда
+    const fetchNotifications = async () => {
       try {
-        const response = await axios.get(`${API_URL}notification/send-notification/message/${localStorage.getItem('UID')}/`);
-        const responseArr = response.data
-        const responseAll = await axios.get(`${API_URL}notification/send-notification/message/${null}/`);
-        const responseAllArr = responseAll.data
-        const responseFull = responseArr.concat(responseAllArr)
-        setListNotification(responseFull);
-        console.log(response)
+        const uid = localStorage.getItem('UID');
+        const response = await axios.get(`${API_URL}notification/send-notification/message/${uid}/`);
+        const notifications = response.data;
+        setListNotification(notifications);
+        console.log(response);
       } catch (error) {
         console.error('Ошибка при загрузке уведомлений', error);
       }
     };
 
-    // Вызов функции для загрузки сообществ при монтировании компонента
-    fetchPublics();
-  }, [localStorage.getItem('UID')]);
-  
-  // const alerts = [
-  //   {
-  //     id: 1,
-  //     isConfirmed: true,
-  //     type: "Модерация креатива",
-  //     content: "Ваш креатив “Пранк-бот” одобрен. Желаем хороших закупов;)",
-  //   },
-  //   {
-  //     id: 2,
-  //     isConfirmed: false,
-  //     type: "Модерация креатива",
-  //     content:
-  //       "Ваш креатив “Пранк-бот” не прошёл проверку. Ознакомьтесь с комментарием и ждём его на проверке снова;)",
-  //     comment: "Исправьте эротический контекст и загрузите креатив снова.",
-  //   },
-  // ];
-
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const [buttonId, setButton] = useState(-1);
-  const [listNotification, setListNotification] = useState([]);
+    // Вызов функции для загрузки уведомлений при монтировании компонента
+    fetchNotifications();
+  }, []);
 
   const handleClick = (id) => {
     setIsFormOpen(true);
@@ -58,16 +38,8 @@ const ProfileHistory = () => {
 
   return (
     <Box sx={{ width: "80%", m: { xs: "0 auto", lg: 0 } }}>
-      {listNotification.map((listNotification) => (
-        <Box key={listNotification["id"]}>
-          {/* <Comment
-            id={listNotification["id"]}
-            buttonId={buttonId}
-            comment={alert["message"]}
-            isFormOpen={isFormOpen}
-            setIsFormOpen={() => setIsFormOpen(false)}
-          /> */}
-
+      {listNotification.map((notification) => (
+        <Box key={notification.id}>
           <Box
             sx={{
               display: "flex",
@@ -81,7 +53,7 @@ const ProfileHistory = () => {
             {/* <Box
               component="img"
               alt="confirm"
-              src={alert["isConfirmed"] ? check : cross}
+              src={notification.isConfirmed ? check : cross}
               sx={{ mt: 0.5, mr: 1 }}
             /> */}
 
@@ -89,7 +61,7 @@ const ProfileHistory = () => {
               <Typography
                 sx={{ fontSize: { md: "18px", xs: "14px" }, fontWeight: 500 }}
               >
-                {listNotification["title"]}
+                {notification.title}
               </Typography>
               <Typography
                 sx={{
@@ -100,18 +72,18 @@ const ProfileHistory = () => {
                   right: 0,
                 }}
               >
-                {listNotification["created"]}
+                {notification.created}
               </Typography>
               <Typography
                 sx={{ fontSize: { md: "14px", xs: "12px" }, fontWeight: 400 }}
               >
-                {listNotification["message"]}
+                {notification.message}
               </Typography>
 
-              {/* {alert["comment"] && (
+              {/* {notification.comment && (
                 <Box sx={{ mt: 2, width: { md: "25%", sm: "50%", xs: "80%" } }}>
                   <MyButton
-                    onClick={() => handleClick(alert["id"])}
+                    onClick={() => handleClick(notification.id)}
                     options={{ background: "#E37E31", color: "white" }}
                   >
                     Комментарий
