@@ -40,6 +40,13 @@ const ProfileHistory = () => {
     <Box sx={{ width: "80%", m: { xs: "0 auto", lg: 0 } }}>
       {listNotification.map((notification) => (
         <Box key={notification.id}>
+          <Comment
+            id={notification.id}
+            buttonId={buttonId}
+            comment={notification.message}
+            isFormOpen={isFormOpen}
+            setIsFormOpen={() => setIsFormOpen(false)}
+          />
           <Box
             sx={{
               display: "flex",
