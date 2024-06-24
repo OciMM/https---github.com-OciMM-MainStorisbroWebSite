@@ -80,7 +80,7 @@ const ProfileHistory = () => {
                 {notification.message}
               </Typography>
 
-              {/* {notification.comment && (
+              {notification.message && (
                 <Box sx={{ mt: 2, width: { md: "25%", sm: "50%", xs: "80%" } }}>
                   <MyButton
                     onClick={() => handleClick(notification.id)}
@@ -89,7 +89,7 @@ const ProfileHistory = () => {
                     Комментарий
                   </MyButton>
                 </Box>
-              )} */}
+              )}
             </Box>
           </Box>
         </Box>
